@@ -1,0 +1,26 @@
+{
+  "name": "imagehover.css",
+  "homepage": "https://github.com/ciar4n/imagehover.css",
+  "authors": [
+    "Ciaran Walsh"
+  ],
+  "description": "",
+  "main": "css/imagehover.css",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "_release": "7e0f6d7af0",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "7e0f6d7af0cec0fb811d57492ff9ede878572806"
+  },
+  "_source": "https://github.com/ciar4n/imagehover.css.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/ciar4n/imagehover.css.git"
+}

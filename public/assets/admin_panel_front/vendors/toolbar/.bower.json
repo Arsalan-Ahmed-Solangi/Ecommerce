@@ -1,0 +1,18 @@
+{
+  "name": "toolbar",
+  "main": "jquery.toolbar.js",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components"
+  ],
+  "homepage": "https://github.com/paulkinzett/toolbar",
+  "_release": "6ba6e2a",
+  "_resolution": {
+    "type": "commit",
+    "commit": "6ba6e2a"
+  },
+  "_source": "https://github.com/paulkinzett/toolbar.git",
+  "_target": "6ba6e2a",
+  "_originalSource": "https://github.com/paulkinzett/toolbar.git"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "CoutUpCircle",
+  "homepage": "https://github.com/JakobVesely/CoutUpCircle",
+  "_release": "5f8be73cd9",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "5f8be73cd9a727b298d8329909308369b0b46ca1"
+  },
+  "_source": "https://github.com/JakobVesely/CoutUpCircle.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/JakobVesely/CoutUpCircle.git"
+}

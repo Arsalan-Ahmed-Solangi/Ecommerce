@@ -1,0 +1,13 @@
+{
+  "name": "slimmenu",
+  "homepage": "https://github.com/adnantopal/slimmenu",
+  "_release": "c264256860",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "c2642568603dfa8bbf7f256c76997f38e3762ace"
+  },
+  "_source": "https://github.com/adnantopal/slimmenu.git",
+  "_target": "*",
+  "_originalSource": "https://github.com/adnantopal/slimmenu.git"
+}

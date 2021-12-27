@@ -1,0 +1,46 @@
+{
+  "name": "metisMenu",
+  "homepage": "https://github.com/onokumus/metisMenu",
+  "authors": [
+    "onokumus <onokumus@gmail.com>"
+  ],
+  "description": "A jQuery menu plugin",
+  "main": [
+    "dist/metisMenu.js",
+    "dist/metisMenu.css"
+  ],
+  "keywords": [
+    "twitter",
+    "bootstrap",
+    "twbs",
+    "jquery",
+    "menu",
+    "accordion",
+    "toggle",
+    "metis",
+    "metisMenu"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "src",
+    "composer.json"
+  ],
+  "dependencies": {
+    "jquery": "~2.2.1"
+  },
+  "version": "2.4.3",
+  "_release": "2.4.3",
+  "_resolution": {
+    "type": "version",
+    "tag": "v2.4.3",
+    "commit": "6083a9efa2af5f8459d7dfac83f69175dcc55cc2"
+  },
+  "_source": "https://github.com/onokumus/metisMenu.git",
+  "_target": "~2.4.0",
+  "_originalSource": "metisMenu"
+}

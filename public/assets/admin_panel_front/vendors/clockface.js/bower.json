@@ -1,0 +1,31 @@
+{
+  "name": "clockface.js",
+  "main": [
+    "js/clockface.js",
+    "css/clockface.css"
+  ],
+  "version": "1.0.1",
+  "homepage": "https://github.com/vitalets/clockface",
+  "authors": [
+    "Vitaliy Potapov"
+  ],
+  "description": "Clock-like timepicker for Twitter Bootstrap.",
+  "keywords": [
+    "clockpicker",
+    "timepicker"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jetapps-eu/clockface.git"
+  },
+  "license": "MIT",
+  "ignore": [
+    "test/*",
+    "build",
+    "bumpver"
+  ],
+  "dependencies": {
+    "jquery": ">= 1.8.2"
+  },
+  "devDependencies": {}
+}
