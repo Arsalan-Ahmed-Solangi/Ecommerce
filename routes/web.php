@@ -38,5 +38,7 @@ Route::group(['prefix' => 'ap', 'as' => 'ap','middleware' => ['AuthAdmin']], fun
 
     Route::get('/adminpanel', [clsAdminController::class, 'AdminDashboard']);
     Route::resource('Categories', category::class);
+
+    Route::get('/adminlogout', [clsAdminController::class,'Logout']);
 });
 /***************************************************************/
