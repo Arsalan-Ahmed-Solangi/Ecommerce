@@ -23,7 +23,7 @@ class clsAdminController extends Controller
 
         if(Session::has('SystemAdminSession'))
         {
-            return redirect('ap/adminpanel')->with('response', 'Please Login again..!');
+            return redirect('adminpanel')->with('response', 'Please Login again..!');
         }
         return view('admin_panel.login');
     }
@@ -82,7 +82,7 @@ class clsAdminController extends Controller
                     \session(['SystemAdminSession' => $sEncryptedUName]);
                     //****************StoreUserInfoIntoSession*************//
 
-                    return redirect('ap/adminpanel')->with('response', 'Logged in successfully..!');
+                    return redirect('adminpanel')->with('response', 'Logged in successfully..!');
 
                 }
                 else

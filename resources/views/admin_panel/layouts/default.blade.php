@@ -132,7 +132,7 @@
                         <li class="p-t-3"><a href="{{ URL :: to('user_profile') }}"> <i class="fa fa-key" style="color: purple;"></i> <span style="color: purple;">Reset Password </span></a>
                         </li>
                         <li role="presentation"></li>
-                        <li><a href="{{ URL :: to('ap/adminlogout') }}"> <i class="fa fa-sign-out" style="color: purple;"></i> <span style="color: purple;">Logout</span>
+                        <li><a href="{{ URL :: to('adminlogout') }}"> <i class="fa fa-sign-out" style="color: purple;"></i> <span style="color: purple;">Logout</span>
                             </a></li>
                     </ul>
                 </li>

@@ -31,7 +31,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/adminlogin', [clsAdminController::class, 'AdminLogin']);
 Route::POST('/admin_login_process', [clsAdminController::class,'AdminLoginProcess']);
 
-Route::group(['prefix' => 'ap', 'as' => 'ap','middleware' => ['AuthAdmin']], function(){
+Route::group(['middleware' => ['AuthAdmin']], function(){
 
     Route::get('pages/{Module?}/{Component?}/{MenuId?}', [admin_pages::class, 'AjaxPage']); //Shows Dynamic Pages with Grid
     Route::any('details/{Module?}/{Component?}/{id?}/{Action?}', 'DataGrid\clsDataGrid@DataGrid');
