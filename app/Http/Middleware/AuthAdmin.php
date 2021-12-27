@@ -18,7 +18,7 @@ class AuthAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if(request()->cookie("SystemAdminCookie") == null || !Session::has('SystemAdminSession'))
+        if(!Session::has('SystemAdminSession'))
         {
 
             \Session::forget('SystemAdminSession');

@@ -21,7 +21,7 @@ class clsAdminController extends Controller
         echo $password = Hash::make($password);
         die;*/
 
-        if(request()->cookie("SystemAdminCookie") !== null && Session::has('SystemAdminSession'))
+        if(Session::has('SystemAdminSession'))
         {
             return redirect('ap/adminpanel')->with('response', 'Please Login again..!');
         }
