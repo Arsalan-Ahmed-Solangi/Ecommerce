@@ -20,25 +20,37 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
+//*****start of user login and registration********//
 Auth::routes();
+//*****end of user login and registration**********//
 
+//****start of home page*********//
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//****end of home page**********//
 
-/***********************/
-/*      Admin Panel    */
-/*********************/
 
+//****start of admin login *******//
 Route::get('/adminlogin', [clsAdminController::class, 'AdminLogin']);
 Route::POST('/admin_login_process', [clsAdminController::class,'AdminLoginProcess']);
+//****end of admin login *******//
 
+//*****start of admin links*********//
 Route::group(['middleware' => ['AuthAdmin']], function(){
+
+
 
     Route::get('pages/{Module?}/{Component?}/{MenuId?}', [admin_pages::class, 'AjaxPage']); //Shows Dynamic Pages with Grid
     Route::any('details/{Module?}/{Component?}/{id?}/{Action?}', 'DataGrid\clsDataGrid@DataGrid');
 
-    Route::get('/adminpanel', [clsAdminController::class, 'AdminDashboard']);
-    Route::resource('Categories', category::class);
 
+    //****Admin Dashboard Home*******//
+    Route::get('/adminpanel', [clsAdminController::class, 'AdminDashboard']);
+
+    //*****Categories********//
+    Route::resource('categories', category::class);
+
+    //***Logout*****//
     Route::get('/adminlogout', [clsAdminController::class,'Logout']);
 });
-/***************************************************************/
+//*****end of admin links*********//
