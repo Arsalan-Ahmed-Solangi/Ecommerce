@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
-use App\Models\admin\admin;
+use App\Models\Admin\Admin;
 use Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;

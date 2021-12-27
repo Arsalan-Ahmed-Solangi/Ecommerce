@@ -47,7 +47,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/admin_panel_front/vendors/select2/css/select2.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/admin_panel_front/vendors/select2/css/select2-bootstrap.css')}}">
 
-
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"/>
         <!---page Level Css --->
     @yield('header_styles')
     <!--- end Page Level Css--->
@@ -60,6 +60,31 @@
                 font-size: 14px;
             }
         </style>
+
+<style type="text/css">
+    .text-custom{
+        color: #012970;
+
+    }
+    .text-bold{
+        font-weight: 700;
+        font-family: "Poppins", sans-serif;
+    }
+    label.error {
+      color: #721c24;
+      font-weight: 600;
+        background-color: #f8d7da;
+        border-color: #f5c6cb;
+        position: relative;
+        width: 100%;
+        margin-top: 5px;
+        padding: .75rem 1rem;
+        margin-bottom: 1rem;
+        border: 1px solid transparent;
+        border-radius: .25rem;
+    }
+
+</style>
 
     </head>
 <body class="skin-coreplus skin-coreplus nav-fixed">
@@ -162,25 +187,59 @@
                             </a>
                         </li>
 
+
                         <li id="catalog" class="menu-dropdown">
                             <a href="javascript:void(0)">
-                                <i class="fa fa-list-alt fa-1x"></i>
-                                <span> CATALOG </span>
+                                <i class="fa fa-users"></i>
+                                <span> Manage Users </span>
                                 <span class="fa arrow"></span>
                             </a>
                             <ul class="sub-menu">
-                                <li id="Products">
-                                    <a href="javascript:void(0)" onclick="menu('Catalog','Products');">
-                                        <i class="fa fa-circle-thin"></i>
-                                        Products
+
+
+                            </ul>
+                        </li>
+
+                        <li id="categories" class="menu-dropdown">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-tasks"></i>
+                                <span> Categories </span>
+                                <span class="fa arrow"></span>
+                            </a>
+                            <ul class="sub-menu">
+
+                                <li>
+                                    <a href="{{ route('categories.create')  }}">
+                                        <i class="fa fa-plus-circle"></i>
+                                        <span> Add Category </span>
+                                        <span class="fa arrow"></span>
                                     </a>
                                 </li>
-                                <li id="Categories">
-                                    <a href="javascript:void(0)" onclick="menu('Catalog','Categories');">
-                                        <i class="fa fa-circle-thin"></i>
-                                        Categories
+
+                                <li>
+                                    <a href="{{ route('categories.index')  }}">
+                                        <i class="fa fa-eye"></i>
+                                        <span> View Categories </span>
+                                        <span class="fa arrow"></span>
                                     </a>
                                 </li>
+
+                                <li>
+                                    <a href="{{ route('categories.create')  }}">
+                                        <i class="fa fa-plus-circle"></i>
+                                        <span> Add Sub category </span>
+                                        <span class="fa arrow"></span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('categories.index')  }}">
+                                        <i class="fa fa-eye"></i>
+                                        <span> View Sub categories </span>
+                                        <span class="fa arrow"></span>
+                                    </a>
+                                </li>
+
                             </ul>
                         </li>
                     </ul>
@@ -193,8 +252,13 @@
         <!-- /.sidebar -->
     </aside>
 
-    <aside class="right-side" id="DivMainContainer" style="border-bottom-left-radius: 14px; border-bottom-right-radius: 14px; border-bottom: 3px solid #333333;">
+    <aside class="right-side" id="DivMainContainer">
         <!-- Content -->
+        @if ($message = Session::get('success'))
+            <div class="alert alert-success" id="message">
+                <p>{{ $message }}</p>
+            </div>
+        @endif
         @yield('content')
     </aside>
     <!-- page wrapper-->
@@ -250,6 +314,18 @@
     <script>
         $(document).ready(function(){
             $('[data-toggle="tooltip"]').tooltip();
+        });
+    </script>
+
+    <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+
+    <script>
+        $(document).ready( function () {
+            $('#table').DataTable();
+            $("#form").validate();
+            $('.message').delay(4000).fadeOut('slow');
         });
     </script>
 

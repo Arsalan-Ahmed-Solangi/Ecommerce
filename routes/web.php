@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\admin\clsAdminController;
-use App\Http\Controllers\admin\category;
+use App\Http\Controllers\Admin\clsAdminController;
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\admin_pages;
 
 /*
@@ -48,7 +48,7 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
     Route::get('/adminpanel', [clsAdminController::class, 'AdminDashboard']);
 
     //*****Categories********//
-    Route::resource('categories', category::class);
+    Route::resource('categories', CategoryController::class);
 
     //***Logout*****//
     Route::get('/adminlogout', [clsAdminController::class,'Logout']);
