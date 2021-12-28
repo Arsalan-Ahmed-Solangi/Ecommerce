@@ -84,9 +84,10 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(SubCategory $subcategory)
     {
-        //
+       $categories = Category::pluck('title','category_id')->toArray();
+       return view('admin_panel.sub_categories.edit',compact('subcategory','categories'));
     }
 
     /**
@@ -96,9 +97,25 @@ class SubCategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,$id)
     {
-        //
+        $request->validate([
+
+            'title'       => 'required|min:3|max:50|regex:/^[a-zA-Z ]+$/u',
+            'category_id' => 'required',
+            'status'      => 'required',
+        ]);
+
+        //Find and Update Record
+        $subCategory  = SubCategory::find($id);
+        $subCategory->title = $request->title ?? null;
+        $subCategory->category_id = $request->category_id ?? null;
+        $subCategory->status = $request->status ?? null;
+        $subCategory->save();
+
+
+        return redirect()->route('subcategories.index')
+        ->with('success','Sub Category updated successfully!');
     }
 
     /**

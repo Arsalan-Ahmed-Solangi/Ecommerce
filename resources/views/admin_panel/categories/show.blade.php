@@ -23,6 +23,22 @@
                     </div>
                 </div>
                 <br/>
+                <br/>
+                <div class="row">
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <strong> Added On</strong>
+                        <p>{{ $category[0]->created_at ?? null  }}</p>
+
+                    </div>
+                    <div class="col-lg-6 col-md-6 col-xs-12">
+                        <strong> Updated On</strong>
+                        <p>{{ $category[0]->updated_at ?? null  }}</p>
+
+                    </div>
+
+                </div>
+                <br/>
+
                 <div class="row">
                     <div class="col-lg-1 col-md-1 col-xs-1">
                         <strong> Status</strong>

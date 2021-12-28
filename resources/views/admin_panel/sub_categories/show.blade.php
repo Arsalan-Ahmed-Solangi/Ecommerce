@@ -25,12 +25,12 @@
                 <br/>
                 <div class="row">
                     <div class="col-lg-6 col-md-6 col-xs-12">
-                        <strong> Created At</strong>
+                        <strong> Added On</strong>
                         <p>{{ $subcategories->created_at ?? null  }}</p>
 
                     </div>
                     <div class="col-lg-6 col-md-6 col-xs-12">
-                        <strong> Updated At</strong>
+                        <strong> Updated On</strong>
                         <p>{{ $subcategories->updated_at ?? null  }}</p>
 
                     </div>
