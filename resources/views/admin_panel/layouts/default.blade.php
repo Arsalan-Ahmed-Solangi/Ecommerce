@@ -188,16 +188,13 @@
                         </li>
 
 
-                        <li id="catalog" class="menu-dropdown">
-                            <a href="javascript:void(0)">
+                        <li id="users" >
+                            <a href="{{ route('users.index')  }}">
                                 <i class="fa fa-users"></i>
                                 <span> Manage Users </span>
-                                <span class="fa arrow"></span>
+
                             </a>
-                            <ul class="sub-menu">
 
-
-                            </ul>
                         </li>
 
                         <li id="categories" class="menu-dropdown">
