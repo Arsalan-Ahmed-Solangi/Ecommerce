@@ -131,4 +131,12 @@ class SubCategoryController extends Controller
         return redirect()->route('subcategories.index')
         ->with('success','Sub Category deleted successfully!');
     }
+    
+    /* get sub category by category id */    
+    public function getSubCategoryByCategoryId(Request $request)
+    { 
+        $subCategory = SubCategory::where("category_id",$request->categoryId)->latest()->get();
+        return response()->json($subCategory);
+    }
+     
 }

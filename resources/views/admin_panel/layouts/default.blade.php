@@ -239,6 +239,14 @@
 
                             </ul>
                         </li>
+                        <li id="product" >
+                            <a href="{{ route('products.index')  }}">
+                                <i class="fa fa-product-hunt"></i>
+                                <span> Products </span>
+
+                            </a>
+
+                        </li>
                     </ul>
                     </nav>
                     <!-- / .navigation -->

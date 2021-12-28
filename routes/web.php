@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\admin_pages;
-
+use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -58,6 +58,15 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
 
     //****Sub Categories******//
     Route::resource('subcategories', SubCategoryController::class);
+
+
+    /************    Products  *******************/
+    Route::resource('products', ProductController::class);
+
+
+     /*         Show On change subcategory        */
+    Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCategoryId']);
+    
 
     //***Logout*****//
     Route::get('/adminlogout', [clsAdminController::class,'Logout']);

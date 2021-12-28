@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use App\Models\Admin\Product;
-
+use Illuminate\Http\Request; 
+use App\Models\Admin\{Product, Category,SubCategory};
+use Carbon\Carbon;
+use Illuminate\Support\Str;
 class ProductController extends Controller
 {
     /**
@@ -15,7 +16,8 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        $products = Product::latest()->get();
+        return view('admin_panel.products.index',compact('products'));
     }
 
     /**
@@ -25,7 +27,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+       
+        $categories = Category::latest()->get();
+        return view('admin_panel.products.create',compact('categories'));
     }
 
     /**
@@ -36,7 +40,40 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+          
+       $request->validate([
+            'category'              => 'required',
+            'subCategory'           => 'required',
+            'productno'             => 'required',
+            'productPrice'          => 'required',
+            'productName'           => 'required|min:5|max:50',
+            'description'           => 'required|min:5|max:500',
+            'productSellingPrice'   => 'required',
+            'productStock'          => 'required',
+            'productWeight'         => 'required',
+            'isFeature'             => 'required',
+            'status'                => 'required',  
+        ]);
+         $current_date_time = Carbon::now()->toDateTimeString();
+
+        Product::create([ 
+            'product_id'            => Str::uuid(),
+            'category_id'           => $request->category,
+            'sub_category_id'       => $request->subCategory ?? null,
+            'product_no'            => $request->productno ?? null,
+            'product_name'          => $request->productName  ?? null,
+            'product_description'   => $request->description  ?? null,
+            'product_price'         => $request->productPrice  ?? null,
+            'product_selling_price' => $request->productSellingPrice  ?? null,
+            'product_stock'         => $request->productStock  ?? null,
+            'product_weight'        => $request->productWeight  ?? null,
+            'is_feature'            => $request->isFeature  ?? null,
+            'status'                => $request->status  ?? null,
+            'created_at'            => $current_date_time,   
+        ]);
+
+        return redirect()->route('products.index')
+        ->with('success','Category created successfully!');
     }
 
     /**
@@ -47,7 +84,15 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+         $data['products'] = Product::latest()->where('product_id','=',$id)->get();
+        
+         $category_id     = isset($products[0]->category_id)?:'';
+         $sub_category_id = isset($products[0]->sub_category_id)?$products[0]->sub_category_id:'';
+ 
+           $data['category'] = Category::join('sub_categories', 'categories.category_id', '=', 'sub_categories.category_id')
+               ->get(['categories.title as category_title', 'sub_categories.title as sub_categorie']);
+                
+        return view('admin_panel.products.show',compact('data'));
     }
 
     /**
@@ -58,7 +103,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+           $data['products'] = Product::latest()->where('product_id','=',$id)->get();
+            $data['categories'] = Category::latest()->get();
+            $data['subCategories'] = SubCategory::latest()->get();
+
+           return view('admin_panel.products.edit',compact('data')); 
     }
 
     /**
@@ -70,7 +119,40 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $request->validate([
+            'category'              => 'required',
+            'subCategory'           => 'required',
+            'productno'             => 'required',
+            'productPrice'          => 'required',
+            'productName'           => 'required|min:5|max:50',
+            'description'           => 'required|min:5|max:500',
+            'productSellingPrice'   => 'required',
+            'productStock'          => 'required',
+            'productWeight'         => 'required',
+            'isFeature'             => 'required',
+            'status'                => 'required',  
+        ]);
+         $update_date_time = Carbon::now()->toDateTimeString();
+            $id = $request->id;
+          
+            $products                        = Product::find($id);
+            $products->category_id           = $request->category;
+            $products->sub_category_id       = $request->subCategory ?? null;
+            $products->product_no            = $request->productno ?? null;
+            $products->product_name          = $request->productName  ?? null;
+            $products->product_description   = $request->description  ?? null;
+            $products->product_price         = $request->productPrice  ?? null;
+            $products->product_selling_price = $request->productSellingPrice  ?? null;
+            $products->product_stock         = $request->productStock  ?? null;
+            $products->product_weight        = $request->productWeight  ?? null;
+            $products->is_feature            = $request->isFeature  ?? null;
+            $products->status                = $request->status  ?? null;
+            $products->updated_at             = $update_date_time;
+            $products->save();
+
+        return redirect()->route('products.index')
+        ->with('success','Category created successfully!');
     }
 
     /**

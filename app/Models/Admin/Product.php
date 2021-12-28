@@ -17,6 +17,13 @@ class Product extends UuiModel
         'product_id',
         'category_id',
         'sub_category_id',
+        'product_no',
+        'product_name',
+        'product_price',
+        'product_selling_price',
+        'product_stock',
+        'product_weight', 
+        'is_feature',
         'product_description',
         'status',
     ];
