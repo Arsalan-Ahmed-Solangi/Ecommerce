@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\clsAdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\admin_pages;
 
 /*
@@ -49,6 +50,9 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
 
     //*****Categories********//
     Route::resource('categories', CategoryController::class);
+
+    //****Sub Categories******//
+    Route::resource('subcategories', SubCategoryController::class);
 
     //***Logout*****//
     Route::get('/adminlogout', [clsAdminController::class,'Logout']);

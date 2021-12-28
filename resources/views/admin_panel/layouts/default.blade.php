@@ -225,7 +225,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('categories.create')  }}">
+                                    <a href="{{ route('subcategories.create')  }}">
                                         <i class="fa fa-plus-circle"></i>
                                         <span> Add Sub category </span>
                                         <span class="fa arrow"></span>
@@ -233,7 +233,7 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('categories.index')  }}">
+                                    <a href="{{ route('subcategories.index')  }}">
                                         <i class="fa fa-eye"></i>
                                         <span> View Sub categories </span>
                                         <span class="fa arrow"></span>
