@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Admin\Category;
+
 use Illuminate\Support\Str;
 
 class CategoryController extends Controller
@@ -19,6 +20,7 @@ class CategoryController extends Controller
 
         //**start of getting all categories******//
         $categories = Category::latest()->get();
+
         //**end of getting all categories*******//
         return view('admin_panel.categories.index',compact('categories'));
     }
@@ -67,6 +69,8 @@ class CategoryController extends Controller
      */
     public function show($id)
     {
+
+
         $category = Category::latest()->where('category_id','=',$id)->get();
         return view('admin_panel.categories.show',compact('category'));
     }
@@ -77,9 +81,10 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Category $category)
     {
-        //
+
+        return view('admin_panel.categories.edit',compact('category'));
     }
 
     /**
@@ -89,9 +94,26 @@ class CategoryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request,Category $category)
     {
-        //
+
+        $request->validate([
+            'title'       => 'required|min:5|max:50|regex:/^[a-zA-Z ]+$/u',
+            'description' => 'required|min:5|max:500',
+            'status'      => 'required'
+        ]);
+
+        $category->update([
+
+            'title'         => $request->title ?? null,
+            'description'   => $request->description ?? null,
+            'status'        => $request->status  ?? null,
+
+        ]);
+
+        return redirect()->route('categories.index')
+        ->with('success','Category updated successfully!');
+
     }
 
     /**

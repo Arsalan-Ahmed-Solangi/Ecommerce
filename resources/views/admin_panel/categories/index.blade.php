@@ -36,6 +36,7 @@
                                     @endif
                                 </td>
                                 <td>
+
                                     <a href="{{ route('categories.show',$value->category_id) }}" class="text-primary"><i class="fa fa-eye fa-2x"></i> </a>
                                     <a href="{{ route('categories.edit',$value->category_id) }}" class="text-success"><i class="fa fa-edit fa-2x"></i> </a>
                                     <form method="POST" action="{{route('categories.destroy', $value->category_id) }}"  >
@@ -50,7 +51,7 @@
                             @endforeach
                         @else
                             <tr>
-                                <td class="5">No Categories Found</td>
+                                <td colspan="5" align="center"><b>No Categories Found</b></td>
                             </tr>
                         @endif
 
