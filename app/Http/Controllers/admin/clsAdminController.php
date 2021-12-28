@@ -61,9 +61,9 @@ class clsAdminController extends Controller
                 throw new \Exception('WrongCredentials');
             }
 
-            $dTempPassword = $sPassword.PassKey;
+            $dTempPassword = $sPassword;
 
-            $aCheckUser = admin::SELECT("user_name", "user_password")
+            $aCheckUser = Admin::SELECT("user_name", "user_password")
                 ->where("user_name", $sUserName)
                 ->where("status", 1)->first();
 
