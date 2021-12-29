@@ -39,12 +39,12 @@
 
                                     <a href="{{ route('users.show',$value->id) }}" class="text-primary"><i class="fa fa-eye fa-2x"></i> </a>
                                     <a href="{{ route('users.edit',$value->id) }}" class="text-success"><i class="fa fa-edit fa-2x"></i> </a>
-                                    <form method="POST" action="{{route('users.destroy', $value->id) }}"  >
+                                    {{-- <form method="POST" action="{{route('users.destroy', $value->id) }}"  >
                                         @method('DELETE')
                                         @csrf
 
                                         <button  type="submit" class="btn btn-danger" style="color:#fff"><i class="fa fa-trash"></i></button>
-                                    </form>
+                                    </form> --}}
 
                                 </td>
                             </tr>

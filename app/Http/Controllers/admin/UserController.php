@@ -47,7 +47,9 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $users = User::latest()->where('id','=',$id)->first();
+        return view('admin_panel.users.show',compact('users'));
     }
 
     /**
@@ -81,6 +83,6 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+
     }
 }

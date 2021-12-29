@@ -47,7 +47,11 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/admin_panel_front/vendors/select2/css/select2.min.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('/assets/admin_panel_front/vendors/select2/css/select2-bootstrap.css')}}">
 
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"/>
+
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.3/css/dataTables.bootstrap5.min.css"/>
+    <link rel="stylesheet" type="text/css"  href="https://cdn.datatables.net/buttons/2.1.0/css/buttons.bootstrap5.min.css"/>
         <!---page Level Css --->
     @yield('header_styles')
     <!--- end Page Level Css--->
@@ -325,13 +329,53 @@
     <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.11.3/js/dataTables.bootstrap5.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/dataTables.buttons.min.js"></script>
+    {{-- <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.bootstrap5.min.js"></script> --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.print.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.html5.min.js"></script>
+    {{-- <script src="https://cdn.datatables.net/buttons/2.1.0/js/buttons.colVis.min.js"></script> --}}
 
     <script>
         $(document).ready( function () {
-            $('#table').DataTable();
+            $('#table').DataTable({
+
+                dom: 'Blfrtip',
+                buttons: [
+                    {
+                        extend:    'copyHtml5',
+                        text:      '<i class="glyphicon glyphicon-copy"></i> Copy',
+                        titleAttr: 'Copy'
+                    },
+                    {
+                        extend:    'excelHtml5',
+                        text:      '<i class="glyphicon glyphicon-th-list"></i> Excel',
+                        titleAttr: 'Excel',
+                        exportOptions: {
+                        orthogonal: 'export'
+                        },
+                    },
+                    {
+                        extend:    'pdfHtml5',
+                        text:      '<i class="glyphicon glyphicon-save"></i> PDF',
+                        titleAttr: 'PDF',
+                        title: "Ecommerce PDF Report",
+                        orientation: 'landscape',
+                        pageSize: 'LEGAL',
+                    },
+
+                ]
+
+            });
+
+
             $("#form").validate();
             $('.message').delay(4000).fadeOut('slow');
         });
+
+
     </script>
 
 </body>
