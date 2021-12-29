@@ -58,9 +58,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(User $user)
     {
-        //
+        return view('admin_panel.users.edit',compact('user'));
     }
 
     /**
@@ -70,9 +70,20 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $request->validate([
+            'name'       => 'required|min:3|max:50|regex:/^[a-zA-Z ]+$/u',
+            'email'      => 'required|min:5|max:500',
+            'gender'     => 'required',
+            'dob'        => 'required',
+            'phone_no'   => 'required|min:11|max:11|regex:/^[0-9]+$/u',
+            'status'     => 'required',
+        ]);
+
+
+
+
     }
 
     /**

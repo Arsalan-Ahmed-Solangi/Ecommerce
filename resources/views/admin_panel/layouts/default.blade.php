@@ -185,7 +185,7 @@
                     <nav>
                     <ul class="navigation">
                         <li>
-                            <a href="{{ URL::to('/ap/adminpanel') }} ">
+                            <a href="{{ URL::to('adminpanel') }} ">
                                 <i class="menu-icon fa fa-fw fa-home"></i>
                                 <span class="mm-text">Dashboard</span>
                             </a>
@@ -213,7 +213,7 @@
                                     <a href="{{ route('categories.create')  }}">
                                         <i class="fa fa-plus-circle"></i>
                                         <span> Add Category </span>
-                                        <span class="fa arrow"></span>
+
                                     </a>
                                 </li>
 
@@ -221,7 +221,7 @@
                                     <a href="{{ route('categories.index')  }}">
                                         <i class="fa fa-eye"></i>
                                         <span> View Categories </span>
-                                        <span class="fa arrow"></span>
+
                                     </a>
                                 </li>
 
@@ -229,7 +229,7 @@
                                     <a href="{{ route('subcategories.create')  }}">
                                         <i class="fa fa-plus-circle"></i>
                                         <span> Add Sub category </span>
-                                        <span class="fa arrow"></span>
+
                                     </a>
                                 </li>
 
@@ -237,19 +237,65 @@
                                     <a href="{{ route('subcategories.index')  }}">
                                         <i class="fa fa-eye"></i>
                                         <span> View Sub categories </span>
-                                        <span class="fa arrow"></span>
+
                                     </a>
                                 </li>
 
                             </ul>
                         </li>
-                        <li id="product" >
+                        <li id="product" class="menu-dropdown">
                             <a href="{{ route('products.index')  }}">
                                 <i class="fa fa-product-hunt"></i>
                                 <span> Products </span>
+                                <span class="fa arrow"></span>
 
                             </a>
 
+                            <ul class="sub-menu">
+
+                                <li>
+                                    <a href="{{ route('products.create')  }}">
+                                        <i class="fa fa-plus-circle"></i>
+                                        <span>  Add Product </span>
+                                    </a>
+                                </li>
+
+                                <li>
+                                    <a href="{{ route('products.index')  }}">
+                                        <i class="fa fa-eye"></i>
+                                        <span> View Products </span>
+
+                                    </a>
+                                </li>
+
+                            </ul>
+                        </li>
+                        <li id="orders" class="menu-dropdown">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-shopping-cart"></i>
+                                <span> Manage Orders </span>
+                            </a>
+
+
+                        </li>
+
+                        <li id="orders" class="menu-dropdown">
+                            <a href="javascript:void(0)">
+                                <i class="fa fa-cog"></i>
+                                <span> Site Settings</span>
+
+                            </a>
+                            <ul class="sub-menu">
+
+                                <li>
+                                    <a href="{{ route('categories.create')  }}">
+                                        <i class="fa fa-ship"></i>
+                                        <span> Shipping Charges </span>
+
+                                    </a>
+                                </li>
+
+                            </ul>
                         </li>
                     </ul>
                     </nav>

@@ -15,6 +15,11 @@
             '3' => 'Delivered'
         ],
 
+        'gender' => [
+            'Male'    => 'Male',
+            'Female'  => 'Female',
+            'Other'   => 'Other',
+        ],
     ]
 
 
