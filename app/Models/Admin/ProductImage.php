@@ -18,4 +18,8 @@ class ProductImage extends UuiModel
         'product_image',
 
     ];
+    public function setFilenamesAttribute($value)
+    {
+        $this->attributes['product_image'] = json_encode($value);
+    }
 }

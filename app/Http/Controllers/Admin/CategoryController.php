@@ -44,7 +44,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'       => 'required|min:5|max:50|regex:/^[a-zA-Z ]+$/u',
+            'title'       => 'required|min:5|max:50',
             'description' => 'required|min:5|max:500',
             'status'      => 'required'
         ]);
@@ -98,7 +98,7 @@ class CategoryController extends Controller
     {
 
         $request->validate([
-            'title'       => 'required|min:5|max:50|regex:/^[a-zA-Z ]+$/u',
+            'title'       => 'required|min:5|max:50',
             'description' => 'required|min:5|max:500',
             'status'      => 'required'
         ]);

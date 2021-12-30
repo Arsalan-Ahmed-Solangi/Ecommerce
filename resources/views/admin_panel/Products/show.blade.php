@@ -70,7 +70,11 @@
                         <p><span class="badge" style="background:#FB8678">Inactive</span></p>
                         @endif
                     </div>
-
+                    <div class="col-lg-3 col-md-3 col-xs-3"></div>
+                    <div class="col-lg-4 col-md-4 col-xs-4">
+                        <strong>Colors</strong>
+                        <p>{{ $data['products'][0]->product_colors ?? null  }}</p> 
+                    </div>
                 </div>
                 <br/>
             </div>

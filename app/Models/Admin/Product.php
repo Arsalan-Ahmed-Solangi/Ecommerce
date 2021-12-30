@@ -25,6 +25,7 @@ class Product extends UuiModel
         'product_weight', 
         'is_feature',
         'product_description',
+        'product_colors',
         'status',
     ];
 

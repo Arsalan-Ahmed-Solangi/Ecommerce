@@ -31,6 +31,8 @@
                      ?>
 
                 <form  action="{{ route('products.update',['id' => $products['0']->product_id])}}" method="POST" id="form">
+                 {!! Form::model($products,array('route' => ['products.update',$products['0']->product_id ],'method'=>'PUT','id'=>'form')) !!}
+                    
                     @csrf
                         <input type="hidden" name="hiddenId" value='{{isset($products[0]->product_id)?$products[0]->product_id:""}}'>
                          <div class="row">
@@ -84,7 +86,7 @@
                                 <div class="col-md-4 col-lg-4 col-sm-4">
                                      <div class="form-group">
                                         <strong>Product No <span class="text-danger">*</span></strong>
-                                        {!! Form::text('productno', $products[0]->product_no ?? null, array('placeholder' => 'Enter Product No','class' => 'form-control','required')) !!}
+                                        {!! Form::number('productno', $products[0]->product_no ?? null, array('placeholder' => 'Enter Product No','class' => 'form-control','required')) !!}
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-lg-4 col-sm-4">
@@ -105,7 +107,7 @@
                                 <div class="col-md-4 col-lg-4 col-sm-4">
                                      <div class="form-group">
                                         <strong>Product Stock <span class="text-danger">*</span></strong>
-                                        {!! Form::text('productStock', $products[0]->product_stock ?? null, array('placeholder' => 'Enter Product Stock','class' => 'form-control','required')) !!}
+                                        {!! Form::number('productStock', $products[0]->product_stock ?? null, array('placeholder' => 'Enter Product Stock','class' => 'form-control','required')) !!}
                                     </div>
                                 </div>
                                  <div class="col-md-4 col-lg-4 col-sm-4">
@@ -117,7 +119,9 @@
                                  <div class="col-md-4 col-lg-4 col-sm-4">
                                      <div class="form-group">
                                         <strong>Is Feature <span class="text-danger">*</span></strong>
-                                        {!! Form::text('isFeature', $products[0]->is_feature ?? null, array('placeholder' => 'Enter Feature','class' => 'form-control','required')) !!}
+                                        {{-- {!! Form::text('isFeature', $products[0]->is_feature ?? null, array('placeholder' => 'Enter Feature','class' => 'form-control','required')) !!} --}}
+                                        {!! Form::select('isFeature',config('global.isFeature'),  $products[0]->is_feature, array('class' => 'form-control','required','placeholder'=>'--Choose  Feature Option--')) !!}
+
                                     </div>
                                 </div> 
                         </div>
@@ -147,7 +151,7 @@
                     </div>
                     <br/>
                     <br/>
-                </form>
+                    {!! Form::close() !!}
             </div>
         </div>
     </div> 

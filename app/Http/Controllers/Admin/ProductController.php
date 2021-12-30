@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request; 
-use App\Models\Admin\{Product, Category,SubCategory};
+use App\Models\Admin\{Product, Category, ProductImage, SubCategory};
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 class ProductController extends Controller
@@ -44,7 +44,7 @@ class ProductController extends Controller
        $request->validate([
             'category'              => 'required',
             'subCategory'           => 'required',
-            'productno'             => 'required',
+            'productno'            => 'required',
             'productPrice'          => 'required',
             'productName'           => 'required|min:5|max:50',
             'description'           => 'required|min:5|max:500',
@@ -55,8 +55,10 @@ class ProductController extends Controller
             'status'                => 'required',  
         ]);
          $current_date_time = Carbon::now()->toDateTimeString();
+ 
+        $colors = implode(",",$request->colors);
 
-        Product::create([ 
+       $response= Product::create([ 
             'product_id'            => Str::uuid(),
             'category_id'           => $request->category,
             'sub_category_id'       => $request->subCategory ?? null,
@@ -69,11 +71,32 @@ class ProductController extends Controller
             'product_weight'        => $request->productWeight  ?? null,
             'is_feature'            => $request->isFeature  ?? null,
             'status'                => $request->status  ?? null,
+            'product_colors'        => $colors ?? null,
             'created_at'            => $current_date_time,   
         ]);
-
+    
+        $product_id = implode('',explode(" ",$response->product_id)) ; 
+       
+        if(isset($product_id) && !empty($product_id))
+        {
+           
+            $request->validate([
+                'imageFile' => ' required', 
+              ]); 
+             foreach ($request->file('imageFile') as $file) {
+                $name = $file->getClientOriginalName();
+                $productImage = new ProductImage;
+                $file->move(public_path().'/uploads/', $name);
+                $productImage->product_image_id = Str::uuid();
+                $productImage->product_image = $name;
+                $productImage->product_id = $product_id;
+                $productImage->save();
+             } 
+        }
+      
         return redirect()->route('products.index')
-        ->with('success','Category created successfully!');
+        ->with('success','Product created successfully!');
+  
     }
 
     /**
@@ -84,8 +107,8 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-         $data['products'] = Product::latest()->where('product_id','=',$id)->get();
-        
+         $products = Product::latest()->where('product_id','=',$id)->get();
+         $data['products'] = $products;
          $category_id     = isset($products[0]->category_id)?:'';
          $sub_category_id = isset($products[0]->sub_category_id)?$products[0]->sub_category_id:'';
  
@@ -101,9 +124,10 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Product $products)
     {
-           $data['products'] = Product::latest()->where('product_id','=',$id)->get();
+      
+        //    $data['products'] = Product::latest()->where('product_id','=',$id)->get();
             $data['categories'] = Category::latest()->get();
             $data['subCategories'] = SubCategory::latest()->get();
 
@@ -119,7 +143,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-
+       
         $request->validate([
             'category'              => 'required',
             'subCategory'           => 'required',

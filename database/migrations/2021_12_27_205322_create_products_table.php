@@ -24,6 +24,7 @@ class CreateProductsTable extends Migration
             $table->string('product_selling_price');
             $table->integer('product_stock');
             $table->string('product_weight');
+            $table->string('product_colors');
             $table->integer('is_feature');
             $table->integer('status')->default(1);
             $table->timestamps();
