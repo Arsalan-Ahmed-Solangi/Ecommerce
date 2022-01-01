@@ -82,6 +82,19 @@ class UserController extends Controller
         ]);
 
 
+        $user->update([
+
+            'name'       => $request->name ?? null,
+            'email'      => $request->email ?? null,
+            'gender'     => $request->gender ?? null,
+            'dob'        => $request->dob ?? null,
+            'phone_no'   => $request->phone_no ?? null,
+            'status'     => $request->status ?? null,
+
+        ]);
+
+        return redirect()->route('users.index')
+        ->with('success','User updated successfully!');
 
 
     }

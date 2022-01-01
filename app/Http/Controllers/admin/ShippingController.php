@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin\Shipping;
 use Illuminate\Http\Request;
 
 class ShippingController extends Controller
@@ -14,7 +15,10 @@ class ShippingController extends Controller
      */
     public function index()
     {
-        //
+
+        $shipping = Shipping::latest()->get();
+
+        return view('admin_panel.shipping.index',compact('shipping'));
     }
 
     /**

@@ -43,13 +43,13 @@
                                         </div>
                                         <div class="widget-count panel-white">
                                             <div class="item-label text-center">
-                                                <div id="count-box" class="count-box">119</div>
-                                                <span class="title">Today Sales</span>
+                                                <div id="count-box" class="count-box">{{ $orders ?? null  }}</div>
+                                                <span class="title">Total Orders</span>
                                             </div>
-                                            <div class="text-center">
+                                            {{-- <div class="text-center">
                                                 <span><i class="fa fa-level-up" aria-hidden="true"></i></span>
                                                 <strong>12 more Sales</strong>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -63,18 +63,19 @@
                                     <div class="cta-wrapper2">
                                         <div class="item">
                                             <div class="widget-icon pull-left icon-color animation-fadeIn">
-                                                <i class="fa fa-fw fa-paw fa-size"></i>
+                                                <i class="fa fa-users"></i>
                                             </div>
                                         </div>
                                         <div class="widget-count panel-white">
                                             <div class="item-label text-center">
-                                                <div id="count-box2" class="count-box">316</div>
-                                                <span class="title">Daily Visits</span>
+
+                                                <div  class="count-box">{{ $users   }}</div>
+                                                <span class="title">Total Users</span>
                                             </div>
-                                            <div class="text-center">
+                                            {{-- <div class="text-center">
                                                 <span><i class="fa fa-level-up" aria-hidden="true"></i></span>
                                                 <strong>60 Bounce Rate</strong>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -88,18 +89,18 @@
                                     <div class="cta-wrapper3">
                                         <div class="item">
                                             <div class="widget-icon pull-left icon-color animation-fadeIn">
-                                                <i class="fa fa-fw fa-usd fa-size"></i>
+                                                <i class="fa fa-tasks"></i>
                                             </div>
                                         </div>
                                         <div class="widget-count panel-white">
                                             <div class="item-label text-center">
-                                                <div id="count-box3" class="count-box">544</div>
-                                                <span class="title">Total income</span>
+                                                <div  class="count-box">{{ $categories ?? null  }}</div>
+                                                <span class="title">Total Categories</span>
                                             </div>
-                                            <div class="text-center">
+                                            {{-- <div class="text-center">
                                                 <span><i class="fa fa-level-up" aria-hidden="true"></i></span>
                                                 <strong>120 more income</strong>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </div>
                                 </div>
@@ -112,13 +113,13 @@
                                     <div class="cta-wrapper4">
                                         <div class="item">
                                             <div class="widget-icon pull-left icon-color animation-fadeIn">
-                                                <i class="fa fa-bar-chart-o fa-size"></i>
+                                                <i class="fa fa-product-hunt"></i>
                                             </div>
                                         </div>
                                         <div class="widget-count panel-white">
                                             <div class="item-label text-center">
-                                                <div id="count-box4" class="count-box">1598</div>
-                                                <span class="title">Total Sales</span>
+                                                <div class="count-box">{{ $products ?? null  }}</div>
+                                                <span class="title">Total Products</span>
                                             </div>
                                         </div>
                                     </div>

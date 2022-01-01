@@ -264,7 +264,7 @@
                             <ul class="sub-menu">
 
                                 <li>
-                                    <a href="{{ route('categories.create')  }}">
+                                    <a href="{{ route('shipping.index')  }}">
                                         <i class="fa fa-ship"></i>
                                         <span> Shipping Charges </span>
 

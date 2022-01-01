@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\clsAdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\ShippingController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\Admin\ProductController;
 /*
@@ -61,6 +62,10 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
 
      /*         Show On change subcategory        */
     Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCategoryId']);
+
+
+    //*****Shipping******//
+    Route::resource('shipping',ShippingController::class);
 
 
     //***Logout*****//

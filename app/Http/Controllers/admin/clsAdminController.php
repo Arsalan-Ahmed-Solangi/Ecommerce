@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
 use App\Models\Admin\Admin;
+use App\Models\User;
+use App\Models\Admin\Category;
+use App\Models\Admin\Product;
+use App\Models\Admin\Order;
+use App\Models\Admin\SubCategory;
 use Session;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Crypt;
@@ -30,7 +35,14 @@ class clsAdminController extends Controller
 
     public function AdminDashboard()
     {
-        return view('admin_panel.index');
+
+        $users      = User::count();
+        $categories = Category::count();
+        $products   = Product::count();
+        $orders     = Order::count();
+
+
+        return view('admin_panel.index',compact('users','categories','products','orders'));
     }
 
     public function AdminLoginProcess(Request $request)
