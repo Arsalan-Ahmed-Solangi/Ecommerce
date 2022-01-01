@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Admin\Shipping;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Str;
 class ShippingController extends Controller
 {
     /**
@@ -28,7 +29,7 @@ class ShippingController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin_panel.shipping.create');
     }
 
     /**
@@ -39,7 +40,23 @@ class ShippingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'shipping_title'    => 'required|min:5|max:50',
+            'shipping_price'    => 'required',
+            'status'            => 'required'
+        ]);
+
+
+        Shipping::create([
+
+            'shipping_id'     => Str::uuid(),
+            'shipping_title'  => $request->shipping_title ?? null,
+            'shipping_price'     => $request->shipping_price ?? null,
+            'status'  => $request->status  ?? null,
+        ]);
+
+        return redirect()->route('shipping.index')
+        ->with('success','Shipping created successfully!');
     }
 
     /**
@@ -82,8 +99,12 @@ class ShippingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy($shipping_id)
     {
-        //
+        $category = Shipping::firstOrFail()->where('shipping_id', $shipping_id);
+        $category->delete($shipping_id);
+        return redirect()->route('shipping.index')
+        ->with('success','Shipping deleted successfully!');
+
     }
 }

@@ -7,7 +7,7 @@
         <div class="card shadow-sm bg-white" >
             <div class="card-header">
                 <h5><i class="fa fa-ship"></i> Shippings</h5>
-                <button class="btn btn-success" style="color:#fff"><i class="fa fa-plus-circle"></i> Add Shipping</button>
+                <a href="{{ route('shipping.create')  }}"><button class="btn btn-success" style="color:#fff"><i class="fa fa-plus-circle"></i> Add Shipping</button></a>
             </div>
 
             <div class="card-body">
