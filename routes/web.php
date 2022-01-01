@@ -5,7 +5,7 @@ use App\Http\Controllers\Admin\clsAdminController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SubCategoryController;
-use App\Http\Controllers\admin_pages;
+use App\Http\Controllers\PublicController;
 use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
@@ -18,9 +18,8 @@ use App\Http\Controllers\Admin\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//****Front Home Page*********//
+Route::get('/', [PublicController::class,'index']);
 
 
 //*****start of user login and registration********//
@@ -40,10 +39,6 @@ Route::POST('/admin_login_process', [clsAdminController::class,'AdminLoginProces
 //*****start of admin links*********//
 Route::group(['middleware' => ['AuthAdmin']], function(){
 
-
-
-    Route::get('pages/{Module?}/{Component?}/{MenuId?}', [admin_pages::class, 'AjaxPage']); //Shows Dynamic Pages with Grid
-    Route::any('details/{Module?}/{Component?}/{id?}/{Action?}', 'DataGrid\clsDataGrid@DataGrid');
 
 
     //****Admin Dashboard Home*******//
@@ -66,7 +61,7 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
 
      /*         Show On change subcategory        */
     Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCategoryId']);
-    
+
 
     //***Logout*****//
     Route::get('/adminlogout', [clsAdminController::class,'Logout']);
