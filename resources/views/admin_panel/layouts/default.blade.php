@@ -116,31 +116,7 @@
 
         <div class="navbar-right">
             <ul class="nav navbar-nav">
-                <!-- Notifications: style can be found in dropdown-->
-                <li class="dropdown notifications-menu">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="fa fa-fw fa-bell-o black"></i>
-                        <span class="label label-warning">0</span>
-                    </a>
-                    <ul class="dropdown-menu dropdown-messages">
-                        <li class="dropdown-title">You have 0 notifications</li>
 
-                        <li>
-                            <a href="" class="message icon-not striped-col">
-
-                                <div class="message-body" style="color: black; text-align: center;">
-
-                                    <br>
-                                    No Notification
-                                    <br>
-
-                                </div>
-
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
                 <!-- User Account: style can be found in dropdown-->
                 <li class="dropdown user user-menu visible-sm visible-md visible-lg visible-xs">
                     <a href="#" class="dropdown-toggle padding-user" data-toggle="dropdown">

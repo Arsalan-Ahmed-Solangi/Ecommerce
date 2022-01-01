@@ -44,8 +44,9 @@
                         <div class="row">
                             <div class="col-md-6 col-lg-6 col-sm-12">
                                 <div class="form-group">
-                                    <strong>Password <span class="text-danger">*</span></strong>
-                                    {!! Form::password('password', array('placeholder' => 'Password','class' => 'form-control','name'=>'password')) !!}
+                                    <strong>Phone No <span class="text-danger">*</span></strong>
+                                    {!! Form::text('phone_no', null, array('placeholder' => 'Enter Phone No','class' => 'form-control','name'=>'phone_no')) !!}
+
 
                                 </div>
                             </div>
@@ -58,28 +59,20 @@
                         </div>
 
                         <div class="row">
-                            <div class="col-md-6 col-lg-6 col-sm-12">
-                                <div class="form-group">
-                                    <strong>Phone No <span class="text-danger">*</span></strong>
-                                    {!! Form::text('phone_no', null, array('placeholder' => 'Enter Phone No','class' => 'form-control','name'=>'phone_no')) !!}
 
-
-                                </div>
-                            </div>
                             <div class="col-md-6 col-lg-6 col-sm-12">
                                 <div class="form-group">
                                     <strong>Date of Birth <span class="text-danger">*</span></strong>
                                     {!!  Form::date('dob',null,array('class'=>'form-control','name'=>'dob')) !!}
                                 </div>
                             </div>
-                        </div>
 
-
-
-
-                        <div class="form-group">
-                            <strong>Status <span class="text-danger">*</span></strong>
-                            {!! Form::select('status',config('global.status'), null, array('class' => 'form-control','placeholder'=>'--SELECT STATUS--')) !!}
+                            <div class="col-md-6 col-lg-6 col-sm-12">
+                                <div class="form-group">
+                                    <strong>Status <span class="text-danger">*</span></strong>
+                                    {!! Form::select('status',config('global.status'), null, array('class' => 'form-control','placeholder'=>'--SELECT STATUS--')) !!}
+                                </div>
+                            </div>
                         </div>
 
                         <br/>

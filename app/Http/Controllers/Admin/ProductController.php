@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request; 
-use App\Models\Admin\{Product, Category, ProductImage, SubCategory};
+use Illuminate\Http\Request;
+use App\Models\Admin\Product;
+use App\Models\Admin\Category;
+use App\Models\Admin\ProductImage;
+use App\Models\Admin\SubCategory;
 use Carbon\Carbon;
 use Illuminate\Support\Str;
 class ProductController extends Controller
@@ -27,7 +30,7 @@ class ProductController extends Controller
      */
     public function create()
     {
-       
+
         $categories = Category::latest()->get();
         return view('admin_panel.products.create',compact('categories'));
     }
@@ -40,7 +43,7 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-          
+
        $request->validate([
             'category'              => 'required',
             'subCategory'           => 'required',
@@ -52,13 +55,13 @@ class ProductController extends Controller
             'productStock'          => 'required',
             'productWeight'         => 'required',
             'isFeature'             => 'required',
-            'status'                => 'required',  
+            'status'                => 'required',
         ]);
          $current_date_time = Carbon::now()->toDateTimeString();
- 
+
         $colors = implode(",",$request->colors);
 
-       $response= Product::create([ 
+       $response= Product::create([
             'product_id'            => Str::uuid(),
             'category_id'           => $request->category,
             'sub_category_id'       => $request->subCategory ?? null,
@@ -72,17 +75,17 @@ class ProductController extends Controller
             'is_feature'            => $request->isFeature  ?? null,
             'status'                => $request->status  ?? null,
             'product_colors'        => $colors ?? null,
-            'created_at'            => $current_date_time,   
+            'created_at'            => $current_date_time,
         ]);
-    
-        $product_id = implode('',explode(" ",$response->product_id)) ; 
-       
+
+        $product_id = implode('',explode(" ",$response->product_id)) ;
+
         if(isset($product_id) && !empty($product_id))
         {
-           
+
             $request->validate([
-                'imageFile' => ' required', 
-              ]); 
+                'imageFile' => ' required',
+              ]);
              foreach ($request->file('imageFile') as $file) {
                 $name = $file->getClientOriginalName();
                 $productImage = new ProductImage;
@@ -91,12 +94,12 @@ class ProductController extends Controller
                 $productImage->product_image = $name;
                 $productImage->product_id = $product_id;
                 $productImage->save();
-             } 
+             }
         }
-      
+
         return redirect()->route('products.index')
         ->with('success','Product created successfully!');
-  
+
     }
 
     /**
@@ -111,10 +114,10 @@ class ProductController extends Controller
          $data['products'] = $products;
          $category_id     = isset($products[0]->category_id)?:'';
          $sub_category_id = isset($products[0]->sub_category_id)?$products[0]->sub_category_id:'';
- 
+
            $data['category'] = Category::join('sub_categories', 'categories.category_id', '=', 'sub_categories.category_id')
                ->get(['categories.title as category_title', 'sub_categories.title as sub_categorie']);
-                
+
         return view('admin_panel.products.show',compact('data'));
     }
 
@@ -124,14 +127,14 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $products)
+    public function edit($id)
     {
-      
-        //    $data['products'] = Product::latest()->where('product_id','=',$id)->get();
-            $data['categories'] = Category::latest()->get();
-            $data['subCategories'] = SubCategory::latest()->get();
 
-           return view('admin_panel.products.edit',compact('data')); 
+        $products = Product::find($id);
+
+            $categories = Category::pluck('title','category_id')->toArray();
+            $sub_categories = SubCategory::pluck('title','sub_category_id')->toArray();
+           return view('admin_panel.products.edit',compact('products','categories','sub_categories'));
     }
 
     /**
@@ -143,7 +146,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-       
+
         $request->validate([
             'category'              => 'required',
             'subCategory'           => 'required',
@@ -155,11 +158,11 @@ class ProductController extends Controller
             'productStock'          => 'required',
             'productWeight'         => 'required',
             'isFeature'             => 'required',
-            'status'                => 'required',  
+            'status'                => 'required',
         ]);
          $update_date_time = Carbon::now()->toDateTimeString();
             $id = $request->id;
-          
+
             $products                        = Product::find($id);
             $products->category_id           = $request->category;
             $products->sub_category_id       = $request->subCategory ?? null;

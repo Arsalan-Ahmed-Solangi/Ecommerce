@@ -22,7 +22,7 @@ class Product extends UuiModel
         'product_price',
         'product_selling_price',
         'product_stock',
-        'product_weight', 
+        'product_weight',
         'is_feature',
         'product_description',
         'product_colors',
