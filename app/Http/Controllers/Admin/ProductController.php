@@ -130,11 +130,17 @@ class ProductController extends Controller
     public function edit($id)
     {
 
-        $products = Product::find($id);
+            $products = Product::find($id);
+            $categories = Category::latest()->get();
+            $SubCategory = SubCategory::latest()->get();
+            $products_images = Product::join('product_images', 'products.product_id', '=', 'product_images.product_id')
+            ->where('product_images.product_id',$id)
+            ->get(['products.*', 'product_images.*']);
 
-            $categories = Category::pluck('title','category_id')->toArray();
-            $sub_categories = SubCategory::pluck('title','sub_category_id')->toArray();
-           return view('admin_panel.products.edit',compact('products','categories','sub_categories'));
+
+            // $categories = Category::pluck('title','category_id')->toArray();
+            // $sub_categories = SubCategory::pluck('title','sub_category_id')->toArray();
+           return view('admin_panel.products.edit',compact('products','categories','SubCategory','products_images'));
     }
 
     /**
