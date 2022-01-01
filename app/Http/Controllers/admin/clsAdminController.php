@@ -115,4 +115,48 @@ class clsAdminController extends Controller
         Session::save();
         return redirect('/adminlogin')->with('response', 'Logout successfully..!');
     }
+
+
+    public function reset_password(){
+        return view('admin_panel.reset_password');
+    }
+
+    public function resetPasswordProcess(Request $request){
+
+        $request->validate([
+            'old_password'  => 'required',
+            'new_password'   => 'required|min:8|max:20',
+            'confirm_password'        => 'required_with:new_password|same:new_password'
+        ]);
+
+
+        $old_password = $request->old_password;
+
+
+        $name =  Crypt::decryptString(Session::get('SystemAdminSession','user_password'));
+        $record = Admin::where('user_name','=',$name)->pluck('user_password')->toArray();
+         $password = $record[0];
+
+        if(Hash::check($old_password,$password)){
+
+            $user = Admin::find('3acfa5d2-2134-497e-aa6f-a6e3f23cea78');
+            $user->update([
+
+                'user_password' => Hash::make($request->new_password),
+
+            ]);
+
+            return redirect()->route('reset_password')
+            ->with('success','Your password has been changed!');
+
+
+        }else{
+            return redirect()->route('reset_password')
+            ->with('error','Old Password not matched!');
+
+        }
+
+
+
+    }
 }

@@ -10,6 +10,7 @@ class Admin extends UuiModel
     use HasFactory;
 
     protected $table      = 'admin';
+    protected $primaryKey  = 'admin_id';
 
     protected $fillable =
         [

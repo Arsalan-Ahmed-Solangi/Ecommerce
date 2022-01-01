@@ -65,5 +65,10 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
 
     //***Logout*****//
     Route::get('/adminlogout', [clsAdminController::class,'Logout']);
+
+    //Reset Password
+    Route::get('reset_password',[clsAdminController::class,'reset_password'])->name('reset_password');
+    Route::post('resetProcess',[clsAdminController::class,'resetPasswordProcess'])->name('resetProcess');
+
 });
 //*****end of admin links*********//

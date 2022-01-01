@@ -158,7 +158,7 @@
                     </a>
                     <ul class="dropdown-menu">
                         <!-- Menu Body -->
-                        <li class="p-t-3"><a href="{{ URL :: to('user_profile') }}"> <i class="fa fa-key" style="color: purple;"></i> <span style="color: purple;">Reset Password </span></a>
+                        <li class="p-t-3"><a href="{{ URL :: to('reset_password') }}"> <i class="fa fa-key" style="color: purple;"></i> <span style="color: purple;">Reset Password </span></a>
                         </li>
                         <li role="presentation"></li>
                         <li><a href="{{ URL :: to('adminlogout') }}"> <i class="fa fa-sign-out" style="color: purple;"></i> <span style="color: purple;">Logout</span>
