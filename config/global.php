@@ -12,10 +12,10 @@
         ],
         'order_status' => [
 
-            '0' => 'Pending',
-            '1' => 'Packing',
-            '2' => 'Shipped',
-            '3' => 'Delivered'
+            'Pending' => 'Pending',
+            'Packing' => 'Packing',
+            'Shipped' => 'Shipped',
+            'Delivered' => 'Delivered'
         ],
 
         'gender' => [
@@ -28,7 +28,7 @@
             'Blue'  => 'Blue',
             'Blue'   => 'Blue',
             'Blue'   => 'Blue',
-            'White'   => 'White', 
+            'White'   => 'White',
         ],
     ]
 

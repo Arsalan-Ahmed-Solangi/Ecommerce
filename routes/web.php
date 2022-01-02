@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ShippingController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\admin\OrdersController;
 use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
@@ -37,6 +38,15 @@ Route::get('/adminlogin', [clsAdminController::class, 'AdminLogin']);
 Route::POST('/admin_login_process', [clsAdminController::class,'AdminLoginProcess']);
 //****end of admin login *******//
 
+//*******Show On change subcategory*******//
+Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCategoryId']);
+
+
+//******Show On change*******//
+Route::get('singleProducts/{id}', [PublicController::class,'singleProducShow']);
+
+
+
 //*****start of admin links*********//
 Route::group(['middleware' => ['AuthAdmin']], function(){
 
@@ -55,12 +65,14 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
     //****Sub Categories******//
     Route::resource('subcategories', SubCategoryController::class);
 
-
-    /************    Products  *******************/
+    //***********Products*******************//
     Route::resource('products', ProductController::class);
 
 
-     /*         Show On change subcategory        */
+    //***********Orders*******************//
+    Route::resource('orders', OrdersController::class);
+
+     //******Show On change subcategory******//
     Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCategoryId']);
 
 
@@ -78,12 +90,5 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
 });
 //*****end of admin links*********//
 
- /*         Show On change subcategory        */
- Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCategoryId']);
 
 
- /*         Show On change         */
- Route::get('singleProducts/{id}', [PublicController::class,'singleProducShow']);
-
- 
- 

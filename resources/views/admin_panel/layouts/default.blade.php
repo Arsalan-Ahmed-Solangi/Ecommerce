@@ -247,7 +247,7 @@
                             </ul>
                         </li>
                         <li id="orders" class="menu-dropdown">
-                            <a href="javascript:void(0)">
+                            <a href="{{ route('orders.index');  }}">
                                 <i class="fa fa-shopping-cart"></i>
                                 <span> Manage Orders </span>
                             </a>
