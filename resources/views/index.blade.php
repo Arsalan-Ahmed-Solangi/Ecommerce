@@ -27,6 +27,7 @@
 
         <!-- CSS Electro Template -->
         <link rel="stylesheet" href="../../assets/css/theme.css">
+   
     </head>
 
     <body>
@@ -112,7 +113,7 @@
                                 <nav class="navbar navbar-expand u-header__navbar py-0 justify-content-xl-between max-width-270 min-width-270">
                                     <!-- Logo -->
                                     <a class="order-1 order-xl-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-center" href="../home/index.html" aria-label="Electro">
-                                        <svg version="1.1" x="0px" y="0px" width="175.748px" height="42.52px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52" style="margin-bottom: 0;">
+                                        {{-- <svg version="1.1" x="0px" y="0px" width="175.748px" height="42.52px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52" style="margin-bottom: 0;">
                                             <ellipse class="ellipse-bg" fill-rule="evenodd" clip-rule="evenodd" fill="#FDD700" cx="170.05" cy="36.341" rx="5.32" ry="5.367"></ellipse>
                                             <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48" d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
                                                 C30.263,0.995,29.876,1.181,29.79,1.5c-0.148,0.548,0,1.568,0,2.427v36.459c0.265,0.221,0.506,0.465,0.725,0.734h6.187
@@ -150,7 +151,9 @@
                                                 c-1.293,2.365-1.951,5.158-1.729,8.408c0.209,3.053,1.191,5.496,2.619,7.508c2.842,4.004,7.385,6.973,13.656,6.377
                                                 c5.976-0.568,9.574-3.936,11.816-8.354c-0.141-0.271-0.221-0.604-0.336-0.902C92.929,31.364,90.843,30.485,88.812,29.55z">
                                             </path>
-                                        </svg>
+                                          
+                                        </svg> --}}
+                                        <img src="{{url('/dashboard_images/logo-removebg-preview.png')}}" alt="">
                                     </a>
                                     <!-- End Logo -->
 
@@ -257,16 +260,9 @@
                                                                 </a>
                                                                 @endforeach
                                                                 
-                                                                <div id="headerSidebarComputersCollapse" class="collapse" data-parent="#headerSidebarContent">
-                                                                {{-- @foreach ($sub_categories as  $subcategory)
-                                                                    <ul class="u-header-collapse__nav-list">
-                                                                        <li class=""><a class="u-header-collapse__submenu-nav-link" href="#">{{$subcategory->title}}</a></li>
-                                                                    </ul>
-                                                                @endforeach --}}
+                                                                <div id="headerSidebarComputersCollapse" class="collapse" data-parent="#headerSidebarContent"> 
                                                                 </div>
-                                                            </li>
-                                                            <!-- End Computers & Accessories -->
-  
+                                                            </li> 
                                                         </ul>
                                                         <!-- End List -->
                                                     </div>
@@ -362,17 +358,7 @@
                                             </div>
                                             <!-- End Input -->
                                         </li>
-                                        <!-- End Search -->
-                                        {{-- <li class="col d-none d-xl-block"><a href="../shop/compare.html" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Compare"><i class="font-size-22 ec ec-compare"></i></a></li>
-                                        <li class="col d-none d-xl-block"><a href="../shop/wishlist.html" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="Favorites"><i class="font-size-22 ec ec-favorites"></i></a></li>
-                                        <li class="col d-xl-none px-2 px-sm-3"><a href="../shop/my-account.html" class="text-gray-90" data-toggle="tooltip" data-placement="top" title="My Account"><i class="font-size-22 ec ec-user"></i></a></li> --}}
-                                        {{-- <li class="col pr-xl-0 px-2 px-sm-3 d-xl-none">
-                                            <a href="../shop/cart.html" class="text-gray-90 position-relative d-flex " title="Cart">
-                                                <i class="font-size-22 ec ec-shopping-bag"></i>
-                                                <span class="bg-lg-down-black width-22 height-22 bg-primary position-absolute d-flex align-items-center justify-content-center rounded-circle left-12 top-8 font-weight-bold font-size-12">2</span>
-                                                <span class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">$1785.00</span>
-                                            </a>
-                                        </li> --}}
+                                        
                                         <li class="col pr-xl-0 px-2 px-sm-3 d-none d-xl-block">
                                             <div  class="text-gray-90 position-relative d-flex " data-toggle="tooltip" data-placement="top" title="Cart"
                                                 aria-controls="basicDropdownHover"
@@ -388,7 +374,7 @@
                                                 data-unfold-animation-out="fadeOut">
                                                 <i class="font-size-22 ec ec-shopping-bag"></i>
                                                 <span class="bg-lg-down-black width-22 height-22 bg-primary position-absolute d-flex align-items-center justify-content-center rounded-circle left-12 top-8 font-weight-bold font-size-12">2</span>
-                                                <span class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">$1785.00</span>
+                                                <span class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">$0.00</span>
                                             </div>
 
                                         </li>
@@ -409,14 +395,15 @@
         <!-- ========== MAIN CONTENT ========== -->
         <main id="content" role="main">
             <!-- Slider Section -->
-            <div class="mb-5">
+      
+           	 <div class="mb-5">
                 <div class="bg-img-hero" style="">
                     <div class="container min-height-420 overflow-hidden">
                         <div class="js-slick-carousel u-slick"
                             data-pagi-classes="text-center position-absolute right-0 bottom-0 left-0 u-slick__pagination u-slick__pagination--long justify-content-start mb-3 mb-md-4 offset-xl-3 pl-2 pb-1">
                             <div class="js-slide bg-img-hero-center">
                                 <div class="row min-height-420 py-7 py-md-0">
-                                    <div class="offset-xl-3 col-xl-4 col-6 mt-md-8">
+                                    <div class="offset-xl-3 col-xl-12 col-12 mt-md-12">
                                         <h1 class="font-size-64 text-lh-57 font-weight-light"
                                             data-scs-animation-in="fadeInUp">
                                             THE NEW <span class="d-block font-size-55">STANDARD</span>
@@ -433,6 +420,8 @@
                                                 <sup class="">$</sup>749<sup class="">99</sup>
                                             </div>
                                         </div>
+                                        {{-- <img src="{{url('/slider/1.JPG')}}" alt=""> --}}
+
                                         <a href="../shop/single-product-fullwidth.html" class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-16"
                                             data-scs-animation-in="fadeInUp"
                                             data-scs-animation-delay="400">
@@ -465,6 +454,8 @@
                                                 <sup class="">$</sup>749<sup class="">99</sup>
                                             </div>
                                         </div>
+                                        {{-- <img src="{{url('/slider/2.JPG')}}" alt=""> --}}
+
                                         <a href="../shop/single-product-fullwidth.html" class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-16"
                                             data-scs-animation-in="fadeInUp"
                                             data-scs-animation-delay="400">
@@ -497,6 +488,8 @@
                                                 <sup class="">$</sup>749<sup class="">99</sup>
                                             </div>
                                         </div>
+                                        {{-- <img src="{{url('/slider/3.JPG')}}" alt=""> --}}
+
                                         <a href="../shop/single-product-fullwidth.html" class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-15"
                                             data-scs-animation-in="fadeInUp"
                                             data-scs-animation-delay="400">
@@ -534,7 +527,7 @@
                                                         </div>
                                                         <div class="flex-center-between mb-1">
                                                             <div class="prodcut-price">
-                                                                <div class="text-gray-100">{{$product->product_price}}</div>
+                                                                <div class="text-gray-100">${{$product->product_price}}</div>
                                                             </div>
                                                             <div class="d-none d-xl-block prodcut-add-cart">
                                                                 <a href="{{url('singleProducts/'.$product->product_id)}}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
@@ -574,7 +567,7 @@
                         <div class="col-lg-5">
                             <div class="mb-6">
                                 <a href="#" class="d-inline-block">
-                                    <svg version="1.1" x="0px" y="0px" width="156px" height="37px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52">
+                                    {{-- <svg version="1.1" x="0px" y="0px" width="156px" height="37px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52">
                                         <ellipse fill-rule="evenodd" clip-rule="evenodd" fill="#FDD700" cx="170.05" cy="36.341" rx="5.32" ry="5.367"></ellipse>
                                         <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48" d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
                                             C30.263,0.995,29.876,1.181,29.79,1.5c-0.148,0.548,0,1.568,0,2.427v36.459c0.265,0.221,0.506,0.465,0.725,0.734h6.187
@@ -612,7 +605,8 @@
                                             c-1.293,2.365-1.951,5.158-1.729,8.408c0.209,3.053,1.191,5.496,2.619,7.508c2.842,4.004,7.385,6.973,13.656,6.377
                                             c5.976-0.568,9.574-3.936,11.816-8.354c-0.141-0.271-0.221-0.604-0.336-0.902C92.929,31.364,90.843,30.485,88.812,29.55z">
                                         </path>
-                                    </svg>
+                                    </svg> --}}
+                                    <img src="{{url('/dashboard_images/logo-removebg-preview.png')}}" alt="">
                                 </a>
                             </div>
                             <div class="mb-4">
@@ -622,17 +616,28 @@
                                     </div>
                                     <div class="col pl-3">
                                         <div class="font-size-13 font-weight-light">Got questions? Call us 24/7!</div>
-                                        <a href="tel:+80080018588" class="font-size-20 text-gray-90">(800) 8001-8588, </a><a href="tel:+0600874548" class="font-size-20 text-gray-90">(0600) 874 548</a>
+                                        <a href="#" class="font-size-20 text-gray-90">Tel: 86-13858917772 (Alissa)<br>
+                                            Tel: 86-15267968557 (Chelina), </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-4">
                                 <h6 class="mb-1 font-weight-bold">Contact info</h6>
-                                <address class="">
-                                    17 Princess Road, London, Greater London NW1 8JR, UK
+                                
+                                <address class="" style='width: 233px;'>
+                                    Yongkang Mengda Industry&Trading Co.,Ltd,was established on 2003.Is located in the hardware capital of CHINA-YONGKANG.And is a professional manufacturer of stainless steel tools and chrome series, including bbq grill,bbq oven and bbq needles.  <br>   Alisaa Bbq Ltd is Registered business in UK
+                                    License no: 13815108
                                 </address>
+                                <ul class="link-small">
+                                    <li>
+                                        <a href="mailto:business@support.com" style='color:none'><i class="ion-ios-email fa-icons"  style='color:none'></i>AlissaBBQ@163.com</a>
+                                    </li>
+                                    <li>
+                                        <a><i class="ion-ios-telephone fa-icons"></i>Tel: 86-13858917772(Alissa) <br> Tel: 86-15267968557(Chelina)</a>
+                                    </li>
+                                </ul>
                             </div>
-                            <div class="my-4 my-md-4">
+                            {{-- <div class="my-4 my-md-4">
                                 <ul class="list-inline mb-0 opacity-7">
                                     <li class="list-inline-item mr-0">
                                         <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
@@ -655,7 +660,7 @@
                                         </a>
                                     </li>
                                 </ul>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="col-lg-7">
                             <div class="row">
@@ -707,7 +712,7 @@
             </div>
             <!-- End Footer-bottom-widgets -->
             <!-- Footer-copy-right -->
-            <div class="bg-gray-14 py-2">
+            {{-- <div class="bg-gray-14 py-2">
                 <div class="container">
                     <div class="flex-center-between d-block d-md-flex">
                         <div class="mb-3 mb-md-0">© <a href="#" class="font-weight-bold text-gray-90">Electro</a> - All rights Reserved</div>
@@ -730,7 +735,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- End Footer-copy-right -->
         </footer>
         <!-- ========== END FOOTER ========== -->
@@ -1164,8 +1169,7 @@
                       
                       console.log(response)
                         if (jQuery.isEmptyObject(response) == false) 
-                            {   
-                              
+                            {    
                                 $('#headerSidebarComputersCollapse').html('');
 
                                 $.each(response, function(i, item) 

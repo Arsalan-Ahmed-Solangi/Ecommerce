@@ -202,7 +202,7 @@
                                                     <div id="headerSidebarContent" class="u-sidebar__content u-header-sidebar__content">
                                                         <!-- Logo -->
                                                         <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center mb-3" href="index.html" aria-label="Electro">
-                                                            <svg version="1.1" x="0px" y="0px" width="175.748px" height="42.52px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52" style="margin-bottom: 0;">
+                                                            {{-- <svg version="1.1" x="0px" y="0px" width="175.748px" height="42.52px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52" style="margin-bottom: 0;">
                                                                 <ellipse class="ellipse-bg" fill-rule="evenodd" clip-rule="evenodd" fill="#FDD700" cx="170.05" cy="36.341" rx="5.32" ry="5.367"></ellipse>
                                                                 <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48" d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
                                                                     C30.263,0.995,29.876,1.181,29.79,1.5c-0.148,0.548,0,1.568,0,2.427v36.459c0.265,0.221,0.506,0.465,0.725,0.734h6.187
@@ -240,7 +240,8 @@
                                                                     c-1.293,2.365-1.951,5.158-1.729,8.408c0.209,3.053,1.191,5.496,2.619,7.508c2.842,4.004,7.385,6.973,13.656,6.377
                                                                     c5.976-0.568,9.574-3.936,11.816-8.354c-0.141-0.271-0.221-0.604-0.336-0.902C92.929,31.364,90.843,30.485,88.812,29.55z">
                                                                 </path>
-                                                            </svg>
+                                                            </svg> --}}
+                                                            <img src="{{url('/dashboard_images/logo-removebg-preview.png')}}" alt="">
                                                         </a>
                                                         <!-- End Logo -->
                                                         
@@ -599,35 +600,12 @@
                             <div class="mb-2">
                                 <div class="border-bottom mb-3 pb-md-1 pb-3"> 
                                     <a href="#" class="font-size-12 text-gray-5 mb-2 d-inline-block">{{$subcategory[0]->title}}</a>
-                                   
                                     <h2 class="font-size-25 text-lh-1dot2">{{$products[0]->product_name}}</h2>
-                                    <div class="mb-2">
-                                        <a class="d-inline-flex align-items-center small font-size-15 text-lh-1" href="#">
-                                            <div class="text-warning mr-2">
-                                                <small class="fas fa-star"></small>
-                                                <small class="fas fa-star"></small>
-                                                <small class="fas fa-star"></small>
-                                                <small class="fas fa-star"></small>
-                                                <small class="far fa-star text-muted"></small>
-                                            </div>
-                                            <span class="text-secondary font-size-13">(3 customer reviews)</span>
-                                        </a>
-                                    </div>
                                     <div class="d-md-flex align-items-center">
                                         <a href="#" class="max-width-150 ml-n2 mb-2 mb-md-0 d-block"><img class="img-fluid" src="{{url('/uploads/'.$productImage[0]->product_image)}}" alt="Image Description"></a>
                                         <div class="ml-md-3 text-gray-9 font-size-14">Availability: <span class="text-green font-weight-bold">{{$products[0]->product_stock}}</span></div>
                                     </div>
                                 </div>
-                                <div class="flex-horizontal-center flex-wrap mb-4">
-                                    <a href="#" class="text-gray-6 font-size-13 mr-2"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                    <a href="#" class="text-gray-6 font-size-13 ml-2"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                </div>
-                                <div class="mb-2">
-                                    <ul class="font-size-14 pl-3 ml-1 text-gray-110">
-                                        <li>{{$products[0]->product_description}}</li> 
-                                    </ul>
-                                </div>
-                            
                                 <p><strong>SKU</strong>: {{$products[0]->product_no}}</p>
                                 <div class="mb-4">
                                     <div class="d-flex align-items-baseline">
@@ -641,10 +619,11 @@
                                         <!-- Select -->
                                         <select class="js-select selectpicker dropdown-select ml-3"
                                             data-style="btn-sm bg-white font-weight-normal py-2 border" multiple>
-                                            <option value="one" selected>White with Gold</option>
-                                            <option value="two">Red</option>
-                                            <option value="three">Green</option>
-                                            <option value="four">Blue</option>
+                                            @foreach (config('global.colors') as $key=> $colors)  
+                                                <option value="{{$key}}"> 
+                                                    {{$colors}}
+                                                </option>
+                                            @endforeach 
                                         </select>
                                         <!-- End Select -->
                                     </div>
@@ -683,12 +662,8 @@
                 <div class="mb-8">
                     <div class="position-relative position-md-static px-md-6">
                         <ul class="nav nav-classic nav-tab nav-tab-lg justify-content-xl-center flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble border-0 pb-1 pb-xl-0 mb-n1 mb-xl-0" id="pills-tab-8" role="tablist">
-                           
                             <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
                                 <a class="nav-link" id="Jpills-two-example1-tab" data-toggle="pill" href="#Jpills-two-example1" role="tab" aria-controls="Jpills-two-example1" aria-selected="false">Description</a>
-                            </li>
-                            <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
-                                <a class="nav-link" id="Jpills-three-example1-tab" data-toggle="pill" href="#Jpills-three-example1" role="tab" aria-controls="Jpills-three-example1" aria-selected="false">Specification</a>
                             </li>
                             <li class="nav-item flex-shrink-0 flex-xl-shrink-1 z-index-2">
                                 <a class="nav-link" id="Jpills-four-example1-tab" data-toggle="pill" href="#Jpills-four-example1" role="tab" aria-controls="Jpills-four-example1" aria-selected="false">Reviews</a>
@@ -789,146 +764,20 @@
                                 </div>
                             </div> --}}
                             <div class="tab-pane fade active show" id="Jpills-two-example1" role="tabpanel" aria-labelledby="Jpills-two-example1-tab">
-                                <h3 class="font-size-24 mb-3">Perfectly Done</h3>
-                                <p>Praesent ornare, ex a interdum consectetur, lectus diam sodales elit, vitae egestas est enim ornare nisl. Nullam in lectus nec sem semper viverra. In lobortis egestas massa. Nam nec massa nisi. Suspendisse potenti. Quisque suscipit vulputate dui quis volutpat. Ut id elit facilisis, feugiat est in, tempus lacus. Ut ultrices dictum metus, a ultricies ex vulputate ac. Ut id cursus tellus, non tempor quam. Morbi porta diam nisi, id finibus nunc tincidunt eu.</p>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="pt-lg-8 pt-xl-10">
-                                            <h3 class="font-size-24 mb-3">Wireless</h3>
-                                            <p class="mb-6">Fusce vitae nibh mi. Integer posuere, libero et ullamcorper facilisis, enim eros tincidunt orci, eget vestibulum sapien nisi ut leo. Cras finibus vel est ut mollis. Donec luctus condimentum ante et euismod.</p>
-                                            <h3 class="font-size-24 mb-3">Fresh Design</h3>
-                                            <p class="mb-6">Integer bibendum aliquet ipsum, in ultrices enim sodales sed. Quisque ut urna vitae lacus laoreet malesuada eu at massa. Pellentesque nibh augue, pellentesque nec dictum vel, pretium a arcu. Duis eu urna suscipit, lobortis elit quis, ullamcorper massa.</p>
-                                            <h3 class="font-size-24 mb-3">Fabolous Sound</h3>
-                                            <p class="mb-6">Cras rutrum, nibh a sodales accumsan, elit sapien ultrices sapien, eget semper lectus ex congue elit. Nullam dui elit, fermentum a varius at, iaculis non dolor. In hac habitasse platea dictumst.</p>
+                                            <p class="mb-6">{{$products[0]->product_description}}</p>  
                                         </div>
-                                    </div>
-                                  
-                                    <div class="col-md-6 align-self-center">
-                                        <div class="pt-lg-8 pt-xl-10 text-right">
-                                            <h3 class="font-size-24 mb-3">Inteligent Bass</h3>
-                                            <p class="mb-6">Fusce vitae nibh mi. Integer posuere, libero et ullamcorper facilisis, enim eros tincidunt orci, eget vestibulum sapien nisi ut leo. Cras finibus vel est ut mollis. Donec luctus condimentum ante et euismod.</p>
-                                            <h3 class="font-size-24 mb-3">Battery Life</h3>
-                                            <p class="mb-6">Integer bibendum aliquet ipsum, in ultrices enim sodales sed. Quisque ut urna vitae lacus laoreet malesuada eu at massa. Pellentesque nibh augue, pellentesque nec dictum vel, pretium a arcu. Duis eu urna suscipit, lobortis elit quis, ullamcorper massa.</p>
-                                        </div>
-                                    </div>
+                                    </div> 
                                 </div>
                                 <ul class="nav flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
-                                    <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1"><strong>SKU:</strong> <span class="sku">FW511948218</span></li>
+                                    <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1"><strong>SKU:</strong> <span class="sku">{{$products[0]->product_no}}</span></li>
                                     <li class="nav-item text-gray-111 mx-3 flex-shrink-0 flex-xl-shrink-1">/</li>
-                                    <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1"><strong>Category:</strong> <a href="#" class="text-blue">Headphones</a></li>
-                                    <li class="nav-item text-gray-111 mx-3 flex-shrink-0 flex-xl-shrink-1">/</li>
-                                    <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1"><strong>Tags:</strong> <a href="#" class="text-blue">Fast</a>, <a href="#" class="text-blue">Gaming</a>, <a href="#" class="text-blue">Strong</a></li>
+                                    <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1"><strong>Category:</strong> <a href="#" class="text-blue">{{$category->title}}</a></li>
                                 </ul>
                             </div>
-                            <div class="tab-pane fade" id="Jpills-three-example1" role="tabpanel" aria-labelledby="Jpills-three-example1-tab">
-                                <div class="mx-md-5 pt-1">
-                                    <div class="table-responsive mb-4">
-                                        <table class="table table-hover">
-                                            <tbody>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5 border-top-0">Weight</th>
-                                                    <td class="border-top-0">7.25kg</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Dimensions</th>
-                                                    <td>90 x 60 x 90 cm</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Size</th>
-                                                    <td>One Size Fits all</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">color</th>
-                                                    <td>Black with Red, White with Gold</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Guarantee</th>
-                                                    <td>5 years</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                    <h3 class="font-size-18 mb-4">Technical Specifications</h3>
-                                    <div class="table-responsive">
-                                        <table class="table table-hover">
-                                            <tbody>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5 border-top-0">Brand</th>
-                                                    <td class="border-top-0">Apple</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Item Height</th>
-                                                    <td>18 Millimeters</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Item Width</th>
-                                                    <td>31.4 Centimeters</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Screen Size</th>
-                                                    <td>13 Inches</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Item Weight</th>
-                                                    <td>1.6 Kg</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Product Dimensions</th>
-                                                    <td>21.9 x 31.4 x 1.8 cm</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Item model number</th>
-                                                    <td>MF841HN/A</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Processor Brand</th>
-                                                    <td>Intel</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Processor Type</th>
-                                                    <td>Core i5</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Processor Speed</th>
-                                                    <td>2.9 GHz</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">RAM Size</th>
-                                                    <td>8 GB</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Hard Drive Size</th>
-                                                    <td>512 GB</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Hard Disk Technology</th>
-                                                    <td>Solid State Drive</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Graphics Coprocessor</th>
-                                                    <td>Intel Integrated Graphics</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Graphics Card Description</th>
-                                                    <td>Integrated Graphics Card</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Hardware Platform</th>
-                                                    <td>Mac</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Operating System</th>
-                                                    <td>Mac OS</td>
-                                                </tr>
-                                                <tr>
-                                                    <th class="px-4 px-xl-5">Average Battery Life (in hours)</th>
-                                                    <td>9</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+                             
                             <div class="tab-pane fade" id="Jpills-four-example1" role="tabpanel" aria-labelledby="Jpills-four-example1-tab">
                                 <div class="row mb-8">
                                     <div class="col-md-6">
@@ -1190,7 +1039,7 @@
                 <!-- End Single Product Tab -->
                
                 <!-- Brand Carousel -->
-                <div class="mb-8">
+                {{-- <div class="mb-8">
                     <div class="py-2 border-top border-bottom">
                         <div class="js-slick-carousel u-slick my-1"
                             data-slides-show="5"
@@ -1246,7 +1095,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> --}}
                 <!-- End Brand Carousel -->
             </div>
           
@@ -1265,7 +1114,7 @@
                         <div class="col-lg-5">
                             <div class="mb-6">
                                 <a href="#" class="d-inline-block">
-                                    <svg version="1.1" x="0px" y="0px" width="156px" height="37px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52">
+                                    {{-- <svg version="1.1" x="0px" y="0px" width="156px" height="37px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52">
                                         <ellipse fill-rule="evenodd" clip-rule="evenodd" fill="#FDD700" cx="170.05" cy="36.341" rx="5.32" ry="5.367"></ellipse>
                                         <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48" d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
                                             C30.263,0.995,29.876,1.181,29.79,1.5c-0.148,0.548,0,1.568,0,2.427v36.459c0.265,0.221,0.506,0.465,0.725,0.734h6.187
@@ -1303,7 +1152,8 @@
                                             c-1.293,2.365-1.951,5.158-1.729,8.408c0.209,3.053,1.191,5.496,2.619,7.508c2.842,4.004,7.385,6.973,13.656,6.377
                                             c5.976-0.568,9.574-3.936,11.816-8.354c-0.141-0.271-0.221-0.604-0.336-0.902C92.929,31.364,90.843,30.485,88.812,29.55z">
                                         </path>
-                                    </svg>
+                                    </svg> --}}
+                                    <img src="{{url('/dashboard_images/logo-removebg-preview.png')}}" alt="">
                                 </a>
                             </div>
                             <div class="mb-4">
@@ -1313,18 +1163,29 @@
                                     </div>
                                     <div class="col pl-3">
                                         <div class="font-size-13 font-weight-light">Got questions? Call us 24/7!</div>
-                                        <a href="tel:+80080018588" class="font-size-20 text-gray-90">(800) 8001-8588, </a><a href="tel:+0600874548" class="font-size-20 text-gray-90">(0600) 874 548</a>
+                                        <a href="#" class="font-size-20 text-gray-90">Tel: 86-13858917772 (Alissa)<br>
+                                            Tel: 86-15267968557 (Chelina), </a>
                                     </div>
                                 </div>
                             </div>
                             <div class="mb-4">
                                 <h6 class="mb-1 font-weight-bold">Contact info</h6>
-                                <address class="">
-                                    17 Princess Road, London, Greater London NW1 8JR, UK
+                                
+                                <address class="" style='width: 233px;'>
+                                    Yongkang Mengda Industry&Trading Co.,Ltd,was established on 2003.Is located in the hardware capital of CHINA-YONGKANG.And is a professional manufacturer of stainless steel tools and chrome series, including bbq grill,bbq oven and bbq needles.  <br>   Alisaa Bbq Ltd is Registered business in UK
+                                    License no: 13815108
                                 </address>
+                                <ul class="link-small">
+                                    <li>
+                                        <a href="mailto:business@support.com"><i class="ion-ios-email fa-icons"></i>AlissaBBQ@163.com</a>
+                                    </li>
+                                    <li>
+                                        <a><i class="ion-ios-telephone fa-icons" style='color:none'></i>Tel: 86-13858917772(Alissa) <br> Tel: 86-15267968557(Chelina)</a>
+                                    </li>
+                                </ul>
                             </div>
                             <div class="my-4 my-md-4">
-                                <ul class="list-inline mb-0 opacity-7">
+                                {{-- <ul class="list-inline mb-0 opacity-7">
                                     <li class="list-inline-item mr-0">
                                         <a class="btn font-size-20 btn-icon btn-soft-dark btn-bg-transparent rounded-circle" href="#">
                                             <span class="fab fa-facebook-f btn-icon__inner"></span>
@@ -1345,7 +1206,7 @@
                                             <span class="fab fa-github btn-icon__inner"></span>
                                         </a>
                                     </li>
-                                </ul>
+                                </ul> --}}
                             </div>
                         </div>
                         <div class="col-lg-7">
@@ -1398,7 +1259,7 @@
             </div>
             <!-- End Footer-bottom-widgets -->
             <!-- Footer-copy-right -->
-            <div class="bg-gray-14 py-2">
+            {{-- <div class="bg-gray-14 py-2">
                 <div class="container">
                     <div class="flex-center-between d-block d-md-flex">
                         <div class="mb-3 mb-md-0">© <a href="#" class="font-weight-bold text-gray-90">Electro</a> - All rights Reserved</div>
@@ -1421,7 +1282,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> --}}
             <!-- End Footer-copy-right -->
         </footer>
         <!-- ========== END FOOTER ========== -->
