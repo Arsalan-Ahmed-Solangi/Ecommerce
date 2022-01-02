@@ -6,7 +6,7 @@
     <div class="container-fluid" style="box-shadow: 1px 4px 8px 0 rgba(0,0,0,0.2);">
         <div class="card shadow-sm bg-white" >
             <div class="card-header">
-                <h5><i class="fa fa-edit"></i> Edit Category</h5>
+                <h5><i class="fa fa-ship"></i> Edit Shipping</h5>
                 <hr/>
             </div>
 
@@ -22,18 +22,19 @@
                     </div>
                  @endif
 
-                 {!! Form::model($category,array('route' => ['categories.update',$category->category_id ],'method'=>'PUT','id'=>'form')) !!}
+                 {!! Form::model($shipping,array('route' => ['shipping.update',$shipping->shipping_id ],'method'=>'PUT','id'=>'form')) !!}
 
 
                         <div class="form-group">
-                            <strong>Category Name <span class="text-danger">*</span></strong>
-                            {!! Form::text('title', null, array('placeholder' => 'Enter Category Name','class' => 'form-control','name'=>'title')) !!}
+                            <strong>Shipping Title <span class="text-danger">*</span></strong>
+                            {!! Form::text('shipping_title', null, array('placeholder' => 'Enter Shipping Title','class' => 'form-control','name'=>'shipping_title')) !!}
 
                         </div>
 
                         <div class="form-group">
-                            <strong>Category Description <span class="text-danger">*</span></strong>
-                            {!! Form::textarea('description', null, array('placeholder' => 'Enter Category Description','class' => 'form-control no-resize','rows'=>'4','name'=>'description')) !!}
+                            <strong>Shipping Price <span class="text-danger">*</span></strong>
+                            {!! Form::number('shipping_price', null, array('placeholder' => 'Enter Shipping Price','class' => 'form-control','required')) !!}
+
                         </div>
 
 

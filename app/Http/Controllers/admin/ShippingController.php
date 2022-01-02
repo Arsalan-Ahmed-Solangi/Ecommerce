@@ -76,9 +76,9 @@ class ShippingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Shipping $shipping)
     {
-        //
+        return view('admin_panel.shipping.edit',compact('shipping'));
     }
 
     /**
@@ -88,9 +88,23 @@ class ShippingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Shipping $shipping)
     {
-        //
+
+        $request->validate([
+            'shipping_title'    => 'required|min:5|max:50',
+            'shipping_price'    => 'required',
+            'status'            => 'required',
+        ]);
+
+        $shipping->update([
+            'shipping_title'  => $request->shipping_title ?? null,
+            'shipping_price'     => $request->shipping_price ?? null,
+            'status'  => $request->status  ?? null,
+        ]);
+
+        return redirect()->route('shipping.index')
+        ->with('success','Shipping updated successfully!');
     }
 
     /**
@@ -101,8 +115,8 @@ class ShippingController extends Controller
      */
     public function destroy($shipping_id)
     {
-        $category = Shipping::firstOrFail()->where('shipping_id', $shipping_id);
-        $category->delete($shipping_id);
+        $shipping = Shipping::firstOrFail()->where('shipping_id', $shipping_id);
+        $shipping->delete($shipping_id);
         return redirect()->route('shipping.index')
         ->with('success','Shipping deleted successfully!');
 

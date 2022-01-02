@@ -36,8 +36,6 @@
                                     @endif
                                 </td>
                                 <td>
-
-                                    <a href="{{ route('shipping.show',$value->shipping_id) }}" class="text-primary"><i class="fa fa-eye fa-2x"></i> </a>
                                     <a href="{{ route('shipping.edit',$value->shipping_id) }}" class="text-success"><i class="fa fa-edit fa-2x"></i> </a>
                                     <form method="POST" action="{{route('shipping.destroy', $value->shipping_id) }}"  >
                                         @method('DELETE')
