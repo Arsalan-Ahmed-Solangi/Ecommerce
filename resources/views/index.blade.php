@@ -527,7 +527,7 @@
                                             <div class="product-item__outer h-100">
                                                 <div class="product-item__inner px-xl-4 p-3">
                                                     <div class="product-item__body pb-xl-2">
-                                                        <div class="mb-2"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">{{$product->title}}</a></div>
+                                                        <div class="mb-2"><a href="{{url('singleProducts/'.$product->product_id)}}" class="font-size-12 text-gray-5">{{$product->title}}</a></div>
                                                         <h5 class="mb-1 product-item__title"><a href="{{url('singleProducts/'.$product->product_id)}}" class="text-blue font-weight-bold">{{$product->product_name}}</a></h5>
                                                         <div class="mb-2">
                                                             <a href="" class="d-block text-center"><img class="img-fluid" src="{{url('/uploads/'.$product->product_image)}}" alt="Image Description" style='height: 150px;'></a>
@@ -537,7 +537,7 @@
                                                                 <div class="text-gray-100">{{$product->product_price}}</div>
                                                             </div>
                                                             <div class="d-none d-xl-block prodcut-add-cart">
-                                                                <a href="../shop/single-product-fullwidth.html" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
+                                                                <a href="{{url('singleProducts/'.$product->product_id)}}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
                                                             </div>
                                                         </div>
                                                     </div>

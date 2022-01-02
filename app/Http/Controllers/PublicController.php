@@ -29,8 +29,9 @@ class PublicController extends Controller
         // ->where('products.product_id',$id) 
         // ->get(['products.*', 'product_images.*','sub_categories.*']); 
         $products = Product::latest()->where('product_id','=',$id)->get(); 
+        // dd($products[0]->sub_category_id);
         $category = Category::latest()->where('category_id','=',  $products[0]->category_id)->get(); 
-        $subcategory = SubCategory::latest()->where('category_id','=',  $category[0]->category_id)->get(); 
+        $subcategory = SubCategory::latest()->where('sub_category_id','=', $products[0]->sub_category_id)->get(); 
         $productImage = ProductImage::latest()->where('product_id','=',  $products[0]->product_id)->get();  
         return view('/products/single_products',compact('categories','products','category','subcategory','productImage'));
     }
