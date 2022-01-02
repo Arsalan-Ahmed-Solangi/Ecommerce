@@ -115,8 +115,8 @@ class ProductController extends Controller
          $category_id     = isset($products[0]->category_id)?:'';
          $sub_category_id = isset($products[0]->sub_category_id)?$products[0]->sub_category_id:'';
 
-           $data['category'] = Category::join('sub_categories', 'categories.category_id', '=', 'sub_categories.category_id')
-               ->get(['categories.title as category_title', 'sub_categories.title as sub_categorie']);
+           $data['category'] = Category::join('sub_categories', 'categories.category_id', '=', 'sub_categories.category_id') 
+                                    ->get(['categories.title as category_title', 'sub_categories.title as sub_categorie']);
 
         return view('admin_panel.products.show',compact('data'));
     }

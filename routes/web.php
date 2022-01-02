@@ -77,3 +77,13 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
 
 });
 //*****end of admin links*********//
+
+ /*         Show On change subcategory        */
+ Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCategoryId']);
+
+
+ /*         Show On change         */
+ Route::get('singleProducts/{id}', [PublicController::class,'singleProducShow']);
+
+ 
+ 
