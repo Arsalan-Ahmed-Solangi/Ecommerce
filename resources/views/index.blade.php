@@ -199,10 +199,10 @@
 
                                                         </a>
                                                         <!-- End Logo -->
-
+                                                    
                                                         <!-- List -->
                                                         <ul id="headerSidebarList" class="u-header-collapse__nav">
-
+                                                           
                                                             <!-- Computers & Accessories -->
                                                             <li class="u-has-submenu u-header-collapse__submenu">
 
@@ -211,12 +211,16 @@
                                                                 <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer categoryclass" id='{{$category->category_id}}' href="javascript:;" data-target="#headerSidebarComputersCollapse" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebarComputersCollapse">
                                                                    {{$category->title}}
                                                                 </a>
+                                                               
                                                                 @endforeach
-
-                                                                <div id="headerSidebarComputersCollapse" class="collapse" data-parent="#headerSidebarContent">
+                                                               
+                                                                <div id="headerSidebarComputersCollapse" class="collapse headerSidebarComputersCollapse" data-parent="#headerSidebarContent">
                                                                 </div>
                                                             </li>
+                                                            
+
                                                         </ul>
+                                                         
                                                         <!-- End List -->
                                                     </div>
                                                 </div>
@@ -768,6 +772,7 @@
                 var id = $(this).attr('id');
 
                 var html ='';
+                var dynamicId=0;
                 $.ajax({
                     url: "{{url('subcategory')}}",
                     type: "POST",
@@ -781,7 +786,9 @@
                     
                         if (jQuery.isEmptyObject(response) == false)
                             {
-                                $('#headerSidebarComputersCollapse').html('');
+
+                                $('.u-header-collapse__nav-list').html('');
+
 
                                 $.each(response, function(i, item)
                                 {
@@ -792,7 +799,7 @@
 
                             }
                             // console.log(html);
-                            $('#headerSidebarComputersCollapse').append(html);
+                            $('#'+id).after(html);
                     }
                     });
                 });
