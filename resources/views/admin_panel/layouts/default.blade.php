@@ -252,6 +252,14 @@
                                 <span> Manage Orders </span>
                             </a>
 
+                        </li>
+
+                        <li id="reviews" class="menu-dropdown">
+                            <a href="{{ route('reviews.index');  }}">
+                                <i class="fa fa-comment"></i>
+                                <span> Reviews </span>
+                            </a>
+
 
                         </li>
 

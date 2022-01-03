@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\Admin\ShippingController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\admin\OrdersController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
@@ -28,9 +29,12 @@ Route::get('/', [PublicController::class,'index']);
 Auth::routes();
 //*****end of user login and registration**********//
 
-//****start of home page*********//
+//****start of User Dashboard page*********//
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-//****end of home page**********//
+Route::get('changePassword',[App\Http\Controllers\HomeController::class, 'changePassword'])->name('changePassword');
+Route::get('viewOrders',[App\Http\Controllers\HomeController::class, 'viewOrders'])->name('viewOrders');
+Route::get('logout',[App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
+//****end of User page**********//
 
 
 //****start of admin login *******//
@@ -45,7 +49,8 @@ Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCatego
 //******Show On change*******//
 Route::get('singleProducts/{id}', [PublicController::class,'singleProducShow']);
 
-
+//****Review Controller*******//
+Route::resource('reviews', ReviewController::class);
 
 //*****start of admin links*********//
 Route::group(['middleware' => ['AuthAdmin']], function(){

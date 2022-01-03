@@ -244,20 +244,20 @@
                                                             <img src="{{url('/dashboard_images/logo-removebg-preview.png')}}" alt="">
                                                         </a>
                                                         <!-- End Logo -->
-                                                        
+
                                                         <!-- List -->
                                                         <ul id="headerSidebarList" class="u-header-collapse__nav">
-                                                           
+
                                                             <!-- Computers & Accessories -->
                                                             <li class="u-has-submenu u-header-collapse__submenu">
-                                                               
-                                                               
+
+
                                                                 @foreach ($categories as  $category)
                                                                 <a class="u-header-collapse__nav-link u-header-collapse__nav-pointer categoryclass" id='{{$category->category_id}}' href="javascript:;" data-target="#headerSidebarComputersCollapse" role="button" data-toggle="collapse" aria-expanded="false" aria-controls="headerSidebarComputersCollapse">
                                                                    {{$category->title}}
                                                                 </a>
                                                                 @endforeach
-                                                                
+
                                                                 <div id="headerSidebarComputersCollapse" class="collapse" data-parent="#headerSidebarContent">
                                                                 {{-- @foreach ($sub_categories as  $subcategory)
                                                                     <ul class="u-header-collapse__nav-list">
@@ -267,7 +267,7 @@
                                                                 </div>
                                                             </li>
                                                             <!-- End Computers & Accessories -->
-  
+
                                                         </ul>
                                                         <!-- End List -->
                                                     </div>
@@ -328,7 +328,7 @@
                                 </form>
                             </div>
                             <!-- End Search Bar -->
-                            
+
                             <!-- Header Icons -->
                             <div class="col col-xl-auto text-right text-xl-left pl-0 pl-xl-3 position-static">
                                 <div class="d-inline-flex">
@@ -514,15 +514,15 @@
                         </div>
                     </div>
                 </div>
-                
+
             </div>  --}}
-            {{-- <div class="mb-6">  
-                <div class="row"> 
-                    <div class="col pl-md-0"> 
+            {{-- <div class="mb-6">
+                <div class="row">
+                    <div class="col pl-md-0">
                         <div class="tab-content pr-0dot5" id="Jpills-tabContent">
                             <div class="tab-pane fade show active" id="Jpills-one-example1" role="tabpanel" aria-labelledby="Jpills-one-example1-tab">
                                 <ul class="row list-unstyled products-group no-gutters">
-                                    @foreach ($products as $product)  
+                                    @foreach ($products as $product)
                                     <div class='col-md-3'>
                                         <li class="col-6 col-md-4 col-xl product-item">
                                             <div class="product-item__outer h-100">
@@ -552,14 +552,14 @@
                                             </div>
                                         </li>
                                     </div>
-                                    @endforeach 
+                                    @endforeach
                                 </ul>
-                            </div> 
+                            </div>
                         </div>
                     </div>
                 </div>
             </div> --}}
-           
+
             <div class="container">
                 <!-- Single Product Body -->
                 <div class="mb-xl-14 mb-6">
@@ -577,7 +577,7 @@
                                         <img class="img-fluid" src="{{url('/uploads/'.$img->product_image)}}" alt="Image Description">
                                     </div>
                                 @endforeach
-                           
+
                             </div>
 
                             <div id="sliderSyncingThumb" class="js-slick-carousel u-slick u-slick--slider-syncing u-slick--slider-syncing-size u-slick--gutters-1 u-slick--transform-off"
@@ -586,19 +586,19 @@
                                 data-is-thumbs="true"
                                 data-nav-for="#sliderSyncingNav">
                                 @foreach ($productImage as $img)
-                               
+
                                 <div class="js-slide" style="cursor: pointer;">
                                     <img class="img-fluid" src="{{url('/uploads/'.$img->product_image)}}" alt="Image Description">
                                 </div>
                                 @endforeach
-                              
+
                             </div>
                         </div>
-                   
-                     
+
+
                         <div class="col-md-7 mb-md-6 mb-lg-0">
                             <div class="mb-2">
-                                <div class="border-bottom mb-3 pb-md-1 pb-3"> 
+                                <div class="border-bottom mb-3 pb-md-1 pb-3">
                                     <a href="#" class="font-size-12 text-gray-5 mb-2 d-inline-block">{{$subcategory[0]->title}}</a>
                                     <h2 class="font-size-25 text-lh-1dot2">{{$products[0]->product_name}}</h2>
                                     <div class="d-md-flex align-items-center">
@@ -619,11 +619,11 @@
                                         <!-- Select -->
                                         <select class="js-select selectpicker dropdown-select ml-3"
                                             data-style="btn-sm bg-white font-weight-normal py-2 border" multiple>
-                                            @foreach (config('global.colors') as $key=> $colors)  
-                                                <option value="{{$key}}"> 
+                                            @foreach (config('global.colors') as $key=> $colors)
+                                                <option value="{{$key}}">
                                                     {{$colors}}
                                                 </option>
-                                            @endforeach 
+                                            @endforeach
                                         </select>
                                         <!-- End Select -->
                                     </div>
@@ -767,9 +767,9 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <div class="pt-lg-8 pt-xl-10">
-                                            <p class="mb-6">{{$products[0]->product_description}}</p>  
+                                            <p class="mb-6">{{$products[0]->product_description}}</p>
                                         </div>
-                                    </div> 
+                                    </div>
                                 </div>
                                 <ul class="nav flex-nowrap flex-xl-wrap overflow-auto overflow-xl-visble">
                                     <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1"><strong>SKU:</strong> <span class="sku">{{$products[0]->product_no}}</span></li>
@@ -777,7 +777,7 @@
                                     <li class="nav-item text-gray-111 flex-shrink-0 flex-xl-shrink-1"><strong>Category:</strong> <a href="#" class="text-blue">{{$category->title}}</a></li>
                                 </ul>
                             </div>
-                             
+
                             <div class="tab-pane fade" id="Jpills-four-example1" role="tabpanel" aria-labelledby="Jpills-four-example1-tab">
                                 <div class="row mb-8">
                                     <div class="col-md-6">
@@ -1037,7 +1037,7 @@
                     <!-- End Tab Content -->
                 </div>
                 <!-- End Single Product Tab -->
-               
+
                 <!-- Brand Carousel -->
                 {{-- <div class="mb-8">
                     <div class="py-2 border-top border-bottom">
@@ -1098,7 +1098,7 @@
                 </div> --}}
                 <!-- End Brand Carousel -->
             </div>
-          
+
         </main>
         <!-- ========== END MAIN CONTENT ========== -->
 
@@ -1170,7 +1170,7 @@
                             </div>
                             <div class="mb-4">
                                 <h6 class="mb-1 font-weight-bold">Contact info</h6>
-                                
+
                                 <address class="" style='width: 233px;'>
                                     Yongkang Mengda Industry&Trading Co.,Ltd,was established on 2003.Is located in the hardware capital of CHINA-YONGKANG.And is a professional manufacturer of stainless steel tools and chrome series, including bbq grill,bbq oven and bbq needles.  <br>   Alisaa Bbq Ltd is Registered business in UK
                                     License no: 13815108
@@ -1699,10 +1699,10 @@
                 // initialization of select picker
                 $.HSCore.components.HSSelectPicker.init('.js-select');
             });
-            
-            $('.categoryclass').bind('click', function(e) {  
+
+            $('.categoryclass').bind('click', function(e) {
                 var id = $(this).attr('id');
-               
+
                 var html ='';
                 $.ajax({
                     url: "{{url('subcategory')}}",
@@ -1713,28 +1713,28 @@
                     },
                     dataType: 'json',
                     success: function (response) {
-                      
+
                       console.log(response)
-                        if (jQuery.isEmptyObject(response) == false) 
-                            {   
-                              
+                        if (jQuery.isEmptyObject(response) == false)
+                            {
+
                                 $('#headerSidebarComputersCollapse').html('');
 
-                                $.each(response, function(i, item) 
-                                {   
+                                $.each(response, function(i, item)
+                                {
                                     html +='<ul class="u-header-collapse__nav-list">';
                                     html += '<li><a class="u-header-collapse__submenu-nav-link" href="#" id='+item.sub_category_id+'>'+item.title+'</a></li>';
                                     html +='</ul>';
-                                }); 
-                                
-                            } 
+                                });
+
+                            }
                             // console.log(html);
                             $('#headerSidebarComputersCollapse').append(html);
                     }
                     });
                 });
 
-        
+
         </script>
     </body>
 </html>

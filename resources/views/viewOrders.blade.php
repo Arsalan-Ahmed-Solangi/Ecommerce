@@ -81,8 +81,13 @@
                                     </li> --}}
                                     <li class="list-inline-item mr-0 u-header-topbar__nav-item u-header-topbar__nav-item-border">
                                         <!-- Account Sidebar Toggle Button -->
+                                        @if (Auth::check())
+                                        <a href="{{ route('home')  }}" class="text-dark"><i class="fa fa-user"></i> {{ Auth::user()->name  }}</a>
 
+                                        @else
                                         <a href="{{ route('register')  }}" class="text-dark"><i class="ec ec-user mr-1"></i> Register</a> <a href="{{ route('login')  }}" class="text-dark"><span class="text-gray-50">or</span> Sign in</a>
+
+                                        @endif
 
                                         <!-- End Account Sidebar Toggle Button -->
                                     </li>
@@ -383,166 +388,59 @@
         <!-- ========== END HEADER ========== -->
 
         <!-- ========== MAIN CONTENT ========== -->
+
         <main id="content" role="main">
-            <!-- Slider Section -->
 
-           	 <div class="mb-5">
-                <div class="bg-img-hero" style="">
-                    <div class="container min-height-420 overflow-hidden">
-                        <div class="js-slick-carousel u-slick"
-                            data-pagi-classes="text-center position-absolute right-0 bottom-0 left-0 u-slick__pagination u-slick__pagination--long justify-content-start mb-3 mb-md-4 offset-xl-3 pl-2 pb-1">
-                            <div class="js-slide bg-img-hero-center">
-                                <div class="row min-height-420 py-7 py-md-0">
-                                    <div class="offset-xl-3 col-xl-12 col-12 mt-md-12">
-                                        <h1 class="font-size-64 text-lh-57 font-weight-light"
-                                            data-scs-animation-in="fadeInUp">
-                                            THE NEW <span class="d-block font-size-55">STANDARD</span>
-                                        </h1>
-                                        <h6 class="font-size-15 font-weight-bold mb-3"
-                                            data-scs-animation-in="fadeInUp"
-                                            data-scs-animation-delay="200">UNDER FAVORABLE SMARTWATCHES
-                                        </h6>
-                                        <div class="mb-4"
-                                            data-scs-animation-in="fadeInUp"
-                                            data-scs-animation-delay="300">
-                                            <span class="font-size-13">FROM</span>
-                                            <div class="font-size-50 font-weight-bold text-lh-45">
-                                                <sup class="">$</sup>749<sup class="">99</sup>
-                                            </div>
-                                        </div>
-                                        {{-- <img src="{{url('/slider/1.JPG')}}" alt=""> --}}
+            <div class="container">
+                <div class="card shadow-lg bg-white p-3 mt-2 mb-2">
+                   <div class="row">
+                       <div class="col-md-4 col-lg-4 col-sm-12">
+                            <ul class="list-group">
+                                <li class="list-group-item active"><b>Manage Dashboard</b></li>
+                                <li class="list-group-item"><a href="{{ route('viewOrders');  }}" class="text-dark"><i class="fa fa-shopping-cart"></i> View Orders</a></li>
+                                {{-- <li class="list-group-item"><a href="{{ route('changePassword');  }}" class="text-dark"><i class="fa fa-key"></i> Change Password</a></li> --}}
+                                <li class="list-group-item"><i class="fa fa-power-off"></i> Logout</li>
+                            </ul>
+                       </div>
+                       <div class="col-md-8 col-lg-8 col-sm-12">
 
-                                        <a href="../shop/single-product-fullwidth.html" class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-16"
-                                            data-scs-animation-in="fadeInUp"
-                                            data-scs-animation-delay="400">
-                                            Start Buying
-                                        </a>
-                                    </div>
-                                    <div class="col-xl-5 col-6  d-flex align-items-center"
-                                        data-scs-animation-in="zoomIn"
-                                        data-scs-animation-delay="500">
-                                        <img class="img-fluid" src="" alt="Image Description">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="js-slide bg-img-hero-center" data-animation-delay="0">
-                                <div class="row min-height-420 py-7 py-md-0">
-                                    <div class="offset-xl-3 col-xl-4 col-6 mt-md-8">
-                                        <h1 class="font-size-64 text-lh-57 font-weight-light"
-                                            data-scs-animation-in="fadeInUp">
-                                            THE NEW <span class="d-block font-size-55">STANDARD</span>
-                                        </h1>
-                                        <h6 class="font-size-15 font-weight-bold mb-3"
-                                            data-scs-animation-in="fadeInUp"
-                                            data-scs-animation-delay="200">UNDER FAVORABLE SMARTWATCHES
-                                        </h6>
-                                        <div class="mb-4"
-                                            data-scs-animation-in="fadeInUp"
-                                            data-scs-animation-delay="300">
-                                            <span class="font-size-13">FROM</span>
-                                            <div class="font-size-50 font-weight-bold text-lh-45">
-                                                <sup class="">$</sup>749<sup class="">99</sup>
-                                            </div>
-                                        </div>
-                                        {{-- <img src="{{url('/slider/2.JPG')}}" alt=""> --}}
 
-                                        <a href="../shop/single-product-fullwidth.html" class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-16"
-                                            data-scs-animation-in="fadeInUp"
-                                            data-scs-animation-delay="400">
-                                            Start Buying
-                                        </a>
-                                    </div>
-                                    <div class="col-xl-5 col-6  d-flex align-items-center"
-                                        data-scs-animation-in="fadeInUp"
-                                        data-scs-animation-delay="500">
-                                        <img class="img-fluid" src="" alt="Image Description">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="js-slide bg-img-hero-center" data-animation-delay="0">
-                                <div class="row min-height-420 py-7 py-md-0">
-                                    <div class="offset-xl-3 col-xl-4 col-6 mt-md-8">
-                                        <h1 class="font-size-64 text-lh-57 font-weight-light"
-                                            data-scs-animation-in="fadeInUp">
-                                            THE NEW <span class="d-block font-size-55">STANDARD</span>
-                                        </h1>
-                                        <h6 class="font-size-15 font-weight-bold mb-3"
-                                            data-scs-animation-in="fadeInUp"
-                                            data-scs-animation-delay="200">UNDER FAVORABLE SMARTWATCHES
-                                        </h6>
-                                        <div class="mb-4"
-                                            data-scs-animation-in="fadeInUp"
-                                            data-scs-animation-delay="300">
-                                            <span class="font-size-13">FROM</span>
-                                            <div class="font-size-50 font-weight-bold text-lh-45">
-                                                <sup class="">$</sup>749<sup class="">99</sup>
-                                            </div>
-                                        </div>
-                                        {{-- <img src="{{url('/slider/3.JPG')}}" alt=""> --}}
+                          <div class="card-body">
+                            <h6><i class="fa fa-shopping-cart"></i> View Orders</h6>
+                            <hr/>
+                              <table class="table table-bordered ">
+                                    <thead>
+                                        <tr>
+                                            <th>SR</th>
+                                            <th>Order No</th>
+                                            <th>Amount</th>
+                                            <th>Date</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
 
-                                        <a href="../shop/single-product-fullwidth.html" class="btn btn-primary transition-3d-hover rounded-lg font-weight-normal py-2 px-md-7 px-3 font-size-15"
-                                            data-scs-animation-in="fadeInUp"
-                                            data-scs-animation-delay="400">
-                                            Start Buying
-                                        </a>
-                                    </div>
-                                    <div class="col-xl-5 col-6  d-flex align-items-center"
-                                        data-scs-animation-in="fadeInRight"
-                                        data-scs-animation-delay="500">
-                                        <img class="img-fluid" src="" alt="Image Description">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                                    <tbody>
+                                        @foreach ($orders as $key => $value)
+                                        <tr>
+                                            <td>{{ ++$key  }}</td>
+                                            <td>{{ $value->order_no  }}</td>
+                                            <td>{{ "$".$value->order_amount  }}</td>
+                                            <td>{{ $value->created_at  }}</td>
+                                            <td>{{ $value->order_status  }}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                              </table>
+                          </div>
 
-            </div>
-            <div class="mb-6">
-                <div class="row">
-                    <div class="col pl-md-0">
-                        <div class="tab-content pr-0dot5" id="Jpills-tabContent">
-                            <div class="tab-pane fade show active" id="Jpills-one-example1" role="tabpanel" aria-labelledby="Jpills-one-example1-tab">
-                                <ul class="row list-unstyled products-group no-gutters">
-                                    @foreach ($products as $product)
-                                    <div class='col-md-3'>
-                                        <li class="col-6 col-md-4 col-xl product-item">
-                                            <div class="product-item__outer h-100">
-                                                <div class="product-item__inner px-xl-4 p-3">
-                                                    <div class="product-item__body pb-xl-2">
-                                                        <div class="mb-2"><a href="{{url('singleProducts/'.$product->product_id)}}" class="font-size-12 text-gray-5">{{$product->title}}</a></div>
-                                                        <h5 class="mb-1 product-item__title"><a href="{{url('singleProducts/'.$product->product_id)}}" class="text-blue font-weight-bold">{{$product->product_name}}</a></h5>
-                                                        <div class="mb-2">
-                                                            <a href="" class="d-block text-center"><img class="img-fluid" src="{{url('/uploads/'.$product->product_image)}}" alt="Image Description" style='height: 150px;'></a>
-                                                        </div>
-                                                        <div class="flex-center-between mb-1">
-                                                            <div class="prodcut-price">
-                                                                <div class="text-gray-100">${{$product->product_price}}</div>
-                                                            </div>
-                                                            <div class="d-none d-xl-block prodcut-add-cart">
-                                                                <a href="{{url('singleProducts/'.$product->product_id)}}" class="btn-add-cart btn-primary transition-3d-hover"><i class="ec ec-add-to-cart"></i></a>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-item__footer">
-                                                        <div class="border-top pt-2 flex-center-between flex-wrap">
-                                                            <a href="../shop/compare.html" class="text-gray-6 font-size-13"><i class="ec ec-compare mr-1 font-size-15"></i> Compare</a>
-                                                            <a href="../shop/wishlist.html" class="text-gray-6 font-size-13"><i class="ec ec-favorites mr-1 font-size-15"></i> Wishlist</a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </div>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+
+                       </div>
+                   </div>
                 </div>
             </div>
 
         </main>
+
         <!-- ========== END MAIN CONTENT ========== -->
 
         <!-- ========== FOOTER ========== -->
