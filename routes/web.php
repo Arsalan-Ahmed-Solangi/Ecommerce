@@ -34,6 +34,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('changePassword',[App\Http\Controllers\HomeController::class, 'changePassword'])->name('changePassword');
 Route::get('viewOrders',[App\Http\Controllers\HomeController::class, 'viewOrders'])->name('viewOrders');
 Route::get('logout',[App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
+Route::post('addToCart',[App\Http\Controllers\HomeController::class, 'addToCart'])->name('addToCart');
+Route::get('viewCart',[App\Http\Controllers\HomeController::class, 'viewCart'])->name('viewCart');
 //****end of User page**********//
 
 

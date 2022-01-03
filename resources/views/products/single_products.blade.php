@@ -375,22 +375,10 @@
                                             </a>
                                         </li> --}}
                                         <li class="col pr-xl-0 px-2 px-sm-3 d-none d-xl-block">
-                                            <div  class="text-gray-90 position-relative d-flex " data-toggle="tooltip" data-placement="top" title="Cart"
-                                                aria-controls="basicDropdownHover"
-                                                aria-haspopup="true"
-                                                aria-expanded="false"
-                                                data-unfold-event="click"
-                                                data-unfold-target="#basicDropdownHover"
-                                                data-unfold-type="css-animation"
-                                                data-unfold-duration="300"
-                                                data-unfold-delay="300"
-                                                data-unfold-hide-on-scroll="true"
-                                                data-unfold-animation-in="slideInUp"
-                                                data-unfold-animation-out="fadeOut">
+
+                                            <a href="{{ route('viewCart')  }}" class="text-dark">
                                                 <i class="font-size-22 ec ec-shopping-bag"></i>
-                                                <span class="bg-lg-down-black width-22 height-22 bg-primary position-absolute d-flex align-items-center justify-content-center rounded-circle left-12 top-8 font-weight-bold font-size-12">2</span>
-                                                <span class="d-none d-xl-block font-weight-bold font-size-16 text-gray-90 ml-3">$1785.00</span>
-                                            </div>
+                                            </a>
 
                                         </li>
                                     </ul>
@@ -561,6 +549,21 @@
             </div> --}}
 
             <div class="container">
+                @if (count($errors) > 0)
+                <div class="alert alert-danger">
+                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                <ul>
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+                </div>
+                @endif
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success" id="message">
+                    <p>{{ $message }}</p>
+                </div>
+               @endif
                 <!-- Single Product Body -->
                 <div class="mb-xl-14 mb-6">
                     <div class="row">
@@ -613,11 +616,15 @@
                                         <del class="font-size-20 ml-2 text-gray-6">${{$products[0]->product_price}}</del>
                                     </div>
                                 </div>
+
+                                <form action="{{ route('addToCart') }}" method="POST" id="form" >
+                                 @csrf
+                                 <input type="hidden" name="product_id" value="{{ $products[0]->product_id ?? null  }}"/>
                                 <div class="border-top border-bottom py-3 mb-4">
                                     <div class="d-flex align-items-center">
                                         <h6 class="font-size-14 mb-0">Color</h6>
                                         <!-- Select -->
-                                        <select class="js-select selectpicker dropdown-select ml-3"
+                                        <select name="color" class="js-select selectpicker dropdown-select ml-3"
                                             data-style="btn-sm bg-white font-weight-normal py-2 border" multiple>
                                             @foreach (config('global.colors') as $key=> $colors)
                                                 <option value="{{$key}}">
@@ -635,25 +642,22 @@
                                         <div class="border rounded-pill py-2 px-3 border-color-1">
                                             <div class="js-quantity row align-items-center">
                                                 <div class="col">
-                                                    <input class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="text" value="1">
+                                                    <input name="quantity" class="js-result form-control h-auto border-0 rounded p-0 shadow-none" type="number" value="1">
                                                 </div>
-                                                <div class="col-auto pr-1">
-                                                    <a class="js-minus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
-                                                        <small class="fas fa-minus btn-icon__inner"></small>
-                                                    </a>
-                                                    <a class="js-plus btn btn-icon btn-xs btn-outline-secondary rounded-circle border-0" href="javascript:;">
-                                                        <small class="fas fa-plus btn-icon__inner"></small>
-                                                    </a>
-                                                </div>
+
                                             </div>
                                         </div>
                                         <!-- End Quantity -->
                                     </div>
                                     <div class="ml-md-3">
-                                        <a href="#" class="btn px-5 btn-primary-dark transition-3d-hover"><i class="ec ec-add-to-cart mr-2 font-size-20"></i> Add to Cart</a>
+                                        <button class="btn px-5 btn-primary-dark transition-3d-hover"><i class="ec ec-add-to-cart mr-2 font-size-20"></i> Add to Cart</button>
+
                                     </div>
                                 </div>
+                            </form>
                             </div>
+
+
                         </div>
                     </div>
                 </div>
