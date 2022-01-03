@@ -87,7 +87,44 @@ class HomeController extends Controller
     }
 
     public function viewCart(){
+
+        $cart = Cart::join('products','products.product_id','=','cart.product_id')->get();
+
+
+
+
         $categories = Category::latest()->get();
-        return view('cart',compact('categories'));
+        return view('cart',compact('categories','cart'));
+    }
+
+    public function deleteCart(Request $request){
+        $id = $request->cart_id;
+        $cart = Cart::findorfail($id);
+        $cart->delete();
+        return Redirect::back()->with('success', 'Product removed from cart');
+
+    }
+
+    public function updateCart(Request $request){
+
+        $id = $request->cart_id;
+        $cart = Cart::findorfail($id);
+        $cart->update([
+
+            'quantity'         => $request->quantity ?? null,
+
+        ]);
+        return Redirect::back()->with('success', 'Cart updated successfully!');
+
+    }
+
+
+    public function checkOut(){
+
+        $cart = Cart::join('products','products.product_id','=','cart.product_id')->get();
+
+        $categories = Category::latest()->get();
+        return view('checkout',compact('categories','cart'));
+
     }
 }

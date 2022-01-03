@@ -22,8 +22,8 @@ use App\Http\Controllers\Admin\ProductController;
 */
 
 //****Front Home Page*********//
-Route::get('/', [PublicController::class,'index']);
- 
+Route::get('/', [PublicController::class,'index'])->name('public');
+
 
 //*****start of user login and registration********//
 Auth::routes();
@@ -36,6 +36,9 @@ Route::get('viewOrders',[App\Http\Controllers\HomeController::class, 'viewOrders
 Route::get('logout',[App\Http\Controllers\HomeController::class, 'logout'])->name('logout');
 Route::post('addToCart',[App\Http\Controllers\HomeController::class, 'addToCart'])->name('addToCart');
 Route::get('viewCart',[App\Http\Controllers\HomeController::class, 'viewCart'])->name('viewCart');
+Route::post('deleteCart',[App\Http\Controllers\HomeController::class, 'deleteCart'])->name('deleteCart');
+Route::post('updateCart',[App\Http\Controllers\HomeController::class, 'updateCart'])->name('updateCart');
+Route::get('checkOut',[App\Http\Controllers\HomeController::class, 'checkOut'])->name('checkOut');
 //****end of User page**********//
 
 
@@ -104,7 +107,7 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
      Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCategoryId']);
 
 
-  /************    Products  *******************/ 
-  Route::resource('products', ProductController::class); 
+  /************    Products  *******************/
+  Route::resource('products', ProductController::class);
 
-  
+
