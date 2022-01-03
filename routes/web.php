@@ -23,7 +23,7 @@ use App\Http\Controllers\Admin\ProductController;
 
 //****Front Home Page*********//
 Route::get('/', [PublicController::class,'index']);
-
+ 
 
 //*****start of user login and registration********//
 Auth::routes();
@@ -97,5 +97,14 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
 });
 //*****end of admin links*********//
 
+  //****Sub Categories******//
+//   Route::resource('subcategories', SubCategoryController::class);
+
+     //******Show On change subcategory******//
+     Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCategoryId']);
 
 
+  /************    Products  *******************/ 
+  Route::resource('products', ProductController::class); 
+
+  

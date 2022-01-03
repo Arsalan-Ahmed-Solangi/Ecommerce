@@ -111,8 +111,9 @@
                                 <!-- Nav -->
                                 <nav class="navbar navbar-expand u-header__navbar py-0 justify-content-xl-between max-width-270 min-width-270">
                                     <!-- Logo -->
-                                    <a class="order-1 order-xl-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-center" href="../home/index.html" aria-label="Electro">
-                                        <svg version="1.1" x="0px" y="0px" width="175.748px" height="42.52px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52" style="margin-bottom: 0;">
+                                    
+                                    <a class="order-1 order-xl-0 navbar-brand u-header__navbar-brand u-header__navbar-brand-center" href="{{ route('home')  }}" aria-label="Electro">
+                                        {{-- <svg version="1.1" x="0px" y="0px" width="175.748px" height="42.52px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52" style="margin-bottom: 0;">
                                             <ellipse class="ellipse-bg" fill-rule="evenodd" clip-rule="evenodd" fill="#FDD700" cx="170.05" cy="36.341" rx="5.32" ry="5.367"></ellipse>
                                             <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48" d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
                                                 C30.263,0.995,29.876,1.181,29.79,1.5c-0.148,0.548,0,1.568,0,2.427v36.459c0.265,0.221,0.506,0.465,0.725,0.734h6.187
@@ -150,7 +151,9 @@
                                                 c-1.293,2.365-1.951,5.158-1.729,8.408c0.209,3.053,1.191,5.496,2.619,7.508c2.842,4.004,7.385,6.973,13.656,6.377
                                                 c5.976-0.568,9.574-3.936,11.816-8.354c-0.141-0.271-0.221-0.604-0.336-0.902C92.929,31.364,90.843,30.485,88.812,29.55z">
                                             </path>
-                                        </svg>
+                                        </svg> --}}
+                                        <img src="{{url('/dashboard_images/logo-removebg-preview.png')}}" alt="">
+
                                     </a>
                                     <!-- End Logo -->
 
@@ -201,7 +204,7 @@
                                                 <div class="js-scrollbar u-sidebar__body">
                                                     <div id="headerSidebarContent" class="u-sidebar__content u-header-sidebar__content">
                                                         <!-- Logo -->
-                                                        <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center mb-3" href="index.html" aria-label="Electro">
+                                                        <a class="navbar-brand u-header__navbar-brand u-header__navbar-brand-center mb-3" href="{{ route('home')  }}" aria-label="Electro">
                                                             {{-- <svg version="1.1" x="0px" y="0px" width="175.748px" height="42.52px" viewBox="0 0 175.748 42.52" enable-background="new 0 0 175.748 42.52" style="margin-bottom: 0;">
                                                                 <ellipse class="ellipse-bg" fill-rule="evenodd" clip-rule="evenodd" fill="#FDD700" cx="170.05" cy="36.341" rx="5.32" ry="5.367"></ellipse>
                                                                 <path fill-rule="evenodd" clip-rule="evenodd" fill="#333E48" d="M30.514,0.71c-0.034,0.003-0.066,0.008-0.056,0.056
@@ -676,97 +679,7 @@
                     </div>
                     <!-- Tab Content -->
                     <div class="borders-radius-17 border p-4 mt-4 mt-md-0 px-lg-10 py-lg-9">
-                        <div class="tab-content" id="Jpills-tabContent">
-                            {{-- <div class="tab-pane fade active show" id="Jpills-one-example1" role="tabpanel" aria-labelledby="Jpills-one-example1-tab">
-                                <div class="row no-gutters">
-                                    <div class="col mb-6 mb-md-0">
-                                        <ul class="row list-unstyled products-group no-gutters border-bottom border-md-bottom-0">
-                                            <li class="col-4 col-md-4 col-xl-2gdot5 product-item remove-divider-sm-down border-0">
-                                                <div class="product-item__outer h-100">
-                                                    <div class="remove-prodcut-hover product-item__inner px-xl-4 p-3">
-                                                        <div class="product-item__body pb-xl-2">
-                                                            <div class="mb-2 d-none d-md-block"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title d-none d-md-block"><a href="#" class="text-blue font-weight-bold">Wireless Audio System Multiroom 360 degree Full base audio</a></h5>
-                                                            <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img1.jpg" alt="Image Description"></a>
-                                                            </div>
-                                                            <div class="flex-center-between mb-1 d-none d-md-block">
-                                                                <div class="prodcut-price">
-                                                                    <div class="text-gray-100">$685,00</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="col-4 col-md-4 col-xl-2gdot5 product-item remove-divider-sm-down">
-                                                <div class="product-item__outer h-100">
-                                                    <div class="remove-prodcut-hover add-accessories product-item__inner px-xl-4 p-3">
-                                                        <div class="product-item__body pb-xl-2">
-                                                            <div class="mb-2 d-none d-md-block"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title d-none d-md-block"><a href="#" class="text-blue font-weight-bold">Tablet White EliteBook Revolve 810 G2</a></h5>
-                                                            <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img2.jpg" alt="Image Description"></a>
-                                                            </div>
-                                                            <div class="flex-center-between mb-1 d-none d-md-block">
-                                                                <div class="prodcut-price d-flex align-items-center position-relative">
-                                                                    <ins class="font-size-20 text-red text-decoration-none">$1999,00</ins>
-                                                                    <del class="font-size-12 tex-gray-6 position-absolute bottom-100">$2 299,00</del>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                            <li class="col-4 col-md-4 col-xl-2gdot5 product-item remove-divider-sm-down remove-divider">
-                                                <div class="product-item__outer h-100">
-                                                    <div class="remove-prodcut-hover add-accessories product-item__inner px-xl-4 p-3">
-                                                        <div class="product-item__body pb-xl-2">
-                                                            <div class="mb-2 d-none d-md-block"><a href="../shop/product-categories-7-column-full-width.html" class="font-size-12 text-gray-5">Speakers</a></div>
-                                                            <h5 class="mb-1 product-item__title d-none d-md-block"><a href="#" class="text-blue font-weight-bold">Purple Solo 2 Wireless</a></h5>
-                                                            <div class="mb-2">
-                                                                <a href="../shop/single-product-fullwidth.html" class="d-block text-center"><img class="img-fluid" src="../../assets/img/212X200/img3.jpg" alt="Image Description"></a>
-                                                            </div>
-                                                            <div class="flex-center-between mb-1 d-none d-md-block">
-                                                                <div class="prodcut-price">
-                                                                    <div class="text-gray-100">$685,00</div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <div class="form-check pl-4 pl-md-0 ml-md-4 mb-2 pb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                                            <input class="form-check-input" type="checkbox" value="" id="inlineCheckbox1" checked disabled>
-                                            <label class="form-check-label mb-1" for="inlineCheckbox1">
-                                                <strong>This product: </strong> Ultra Wireless S50 Headphones S50 with Bluetooth - <span class="text-red font-size-16">$35.00</span>
-                                            </label>
-                                        </div>
-                                        <div class="form-check pl-4 pl-md-0 ml-md-4 mb-2 pb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option1" checked>
-                                            <label class="form-check-label mb-1 text-blue" for="inlineCheckbox2">
-                                                <span class="text-decoration-on cursor-pointer-on">Universal Headphones Case in Black</span> - <span class="text-red font-size-16">$159.00</span>
-                                            </label>
-                                        </div>
-                                        <div class="form-check pl-4 pl-md-0 ml-md-4 mb-2 pb-2 pb-md-0 mb-md-0 border-bottom border-md-bottom-0">
-                                            <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option2" checked>
-                                            <label class="form-check-label mb-1 text-blue" for="inlineCheckbox3">
-                                                <span class="text-decoration-on cursor-pointer-on">Headphones USB Wires</span> - <span class="text-red font-size-16">$50.00</span>
-                                            </label>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-auto">
-                                        <div class="mr-xl-15">
-                                            <div class="mb-3">
-                                                <div class="text-red font-size-26 text-lh-1dot2">$244.00</div>
-                                                <div class="text-gray-6">for 3 item(s)</div>
-                                            </div>
-                                            <a href="#" class="btn btn-sm btn-block btn-primary-dark btn-wide transition-3d-hover">Add all to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> --}}
+                        <div class="tab-content" id="Jpills-tabContent"> 
                             <div class="tab-pane fade active show" id="Jpills-two-example1" role="tabpanel" aria-labelledby="Jpills-two-example1-tab">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -1706,7 +1619,7 @@
 
             $('.categoryclass').bind('click', function(e) {
                 var id = $(this).attr('id');
-
+                
                 var html ='';
                 $.ajax({
                     url: "{{url('subcategory')}}",
@@ -1717,11 +1630,10 @@
                     },
                     dataType: 'json',
                     success: function (response) {
-
-                      console.log(response)
+                         
                         if (jQuery.isEmptyObject(response) == false)
                             {
-
+                                // $('#headerSidebarComputersCollapse').attr("id",id);
                                 $('#headerSidebarComputersCollapse').html('');
 
                                 $.each(response, function(i, item)
