@@ -895,8 +895,8 @@
 
                                 $.each(response, function(i, item)
                                 {
-                                    html +='<ul class="u-header-collapse__nav-list">';
-                                    html += '<li><a class="u-header-collapse__submenu-nav-link" href="#" id='+item.sub_category_id+'>'+item.title+'</a></li>';
+                                 html +='<ul class="u-header-collapse__nav-list">';
+                                 html += '<li><a class="u-header-collapse__submenu-nav-link" href="{{url('showProductBySubCategoryId/')}}/'+item.sub_category_id+'" id='+item.sub_category_id+'>'+item.title+'</a></li>';
                                     html +='</ul>';
                                 });
 
@@ -909,7 +909,7 @@
 
                
                   function getgata()
-                {
+                  {
                     var html = '';
                     var i ='';
                     $.each(products ,function (key, ObjSection) 

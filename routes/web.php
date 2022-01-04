@@ -104,11 +104,13 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
   //****Sub Categories******//
 //   Route::resource('subcategories', SubCategoryController::class);
 
-     //******Show On change subcategory******//
-     Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCategoryId']);
-
+ //******Show On change subcategory******//
+  Route::post('subcategory', [SubCategoryController::class,'getSubCategoryByCategoryId']); 
 
   /************    Products  *******************/
   Route::resource('products', ProductController::class);
+
+
+Route::get('showProductBySubCategoryId/{id}', [PublicController::class,'showProductBySubCategoryId']);
 
 
