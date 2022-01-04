@@ -491,14 +491,39 @@
                                         <!-- Input -->
                                         <div class="js-form-message mb-6">
                                             <label class="form-label">
-                                                Last name
+                                                Address
                                                 <span class="text-danger">*</span>
                                             </label>
-                                            <input type="text" class="form-control" name="lastName" placeholder="Wayley" aria-label="Wayley" required="" data-msg="Please enter your last name." data-error-class="u-has-error" data-success-class="u-has-success">
+                                            <textarea rows="5" name="address" placeholder="Enter your address" class="form-control"></textarea>
                                         </div>
                                         <!-- End Input -->
                                     </div>
 
+                                    <div class="col-md-6">
+                                        <!-- Input -->
+                                        <div class="js-form-message mb-6">
+                                            <label class="form-label">
+                                                Phone No
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <input type="number" name="phone_no" placeholder="Enter phone number" class="form-control">
+                                        </div>
+                                        <!-- End Input -->
+                                    </div>
+
+
+
+                                    <div class="col-md-6">
+                                        <!-- Input -->
+                                        <div class="js-form-message mb-6">
+                                            <label class="form-label">
+                                                Postal Code
+                                                <span class="text-danger">*</span>
+                                            </label>
+                                            <input type="number" name="postal_code" placeholder="Enter postal code" class="form-control">
+                                        </div>
+                                        <!-- End Input -->
+                                    </div>
 
 
 
