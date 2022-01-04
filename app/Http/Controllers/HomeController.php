@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin\Category;
+use App\Models\Admin\SubCategory;
+
 use Illuminate\Http\Request;
 use App\Models\Admin\Order;
 use Auth;
@@ -31,9 +33,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $categories = Category::latest()->get();
-
-        return view('home',compact('categories'));
+         $categories = Category::latest()->get();
+         $subcategories= subcategory::latest()->get();
+        return view('home',compact('categories','subcategories'));
     }
 
     public function changePassword(){
@@ -174,5 +176,16 @@ class HomeController extends Controller
        ->with('success','Your order has beed created!');
     }
 
+ public function showProductBySubCategoryId($id)
+    {
+        $categories = Category::latest()->get(); 
+        $product= Product::latest()->get();
+        $subcategories= subcategory::latest()->get();
 
+         $products = Product::join('product_images', 'products.product_id', '=', 'product_images.product_id')
+        ->join('sub_categories', 'sub_categories.sub_category_id', '=', 'products.sub_category_id')  
+        ->where('products.sub_category_id',$id)
+        ->get(['products.*', 'product_images.*','sub_categories.*']);
+         return view('index',compact('categories','products','subcategories'));
+    }
 }

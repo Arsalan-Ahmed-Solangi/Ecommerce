@@ -593,32 +593,17 @@
                                     <h6 class="mb-3 font-weight-bold">Find it Fast</h6>
                                     <!-- List Group -->
                                     <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Laptops & Computers</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Cameras & Photography</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Smart Phones & Tablets</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Video Games & Consoles</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">TV & Audio</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Gadgets</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Car Electronic & GPS</a></li>
+                                         @foreach($subcategories as $key=>$value) 
+                                        <li><a class="list-group-item list-group-item-action" href="{{url('showProductBySubCategoryId/'.$value->sub_category_id)}}">{{$value->title}}</a></li>
+                                        @endforeach 
+                                       
                                     </ul>
                                     <!-- End List Group -->
                                 </div>
-
-                                <div class="col-12 col-md mb-4 mb-md-0">
-                                    <!-- List Group -->
-                                    <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent mt-md-6">
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Printers & Ink</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Software</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Office Supplies</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Computer Components</a></li>
-                                        <li><a class="list-group-item list-group-item-action" href="../shop/product-categories-5-column-sidebar.html">Accesories</a></li>
-                                    </ul>
-                                    <!-- End List Group -->
-                                </div>
-
-                                <div class="col-12 col-md mb-4 mb-md-0">
+ 
+                              <!--   <div class="col-12 col-md mb-4 mb-md-0">
                                     <h6 class="mb-3 font-weight-bold">Customer Care</h6>
-                                    <!-- List Group -->
+                                 
                                     <ul class="list-group list-group-flush list-group-borderless mb-0 list-group-transparent">
                                         <li><a class="list-group-item list-group-item-action" href="../shop/my-account.html">My Account</a></li>
                                         <li><a class="list-group-item list-group-item-action" href="../shop/track-your-order.html">Order Tracking</a></li>
@@ -628,8 +613,8 @@
                                         <li><a class="list-group-item list-group-item-action" href="../home/faq.html">FAQs</a></li>
                                         <li><a class="list-group-item list-group-item-action" href="../home/terms-and-conditions.html">Product Support</a></li>
                                     </ul>
-                                    <!-- End List Group -->
-                                </div>
+                                   
+                                </div> -->
                             </div>
                         </div>
                     </div>

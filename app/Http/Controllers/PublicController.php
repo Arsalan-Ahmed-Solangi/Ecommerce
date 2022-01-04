@@ -13,11 +13,13 @@ class PublicController extends Controller
     public function index(){
         $categories = Category::latest()->get(); 
         $product= Product::latest()->get();
+        $subcategories= subcategory::latest()->get();
+
       
         $products= Product::join('product_images', 'products.product_id', '=', 'product_images.product_id')
         ->join('sub_categories', 'sub_categories.sub_category_id', '=', 'products.sub_category_id')  
         ->get(['products.*', 'product_images.*','sub_categories.*']);
-         return view('index',compact('categories','products'));
+         return view('index',compact('categories','products','subcategories'));
     }
     public function singleProducShow($id='')
     {
@@ -40,11 +42,12 @@ class PublicController extends Controller
     {
         $categories = Category::latest()->get(); 
         $product= Product::latest()->get();
-        
+        $subcategories= subcategory::latest()->get();
+
          $products = Product::join('product_images', 'products.product_id', '=', 'product_images.product_id')
         ->join('sub_categories', 'sub_categories.sub_category_id', '=', 'products.sub_category_id')  
         ->where('products.sub_category_id',$id)
         ->get(['products.*', 'product_images.*','sub_categories.*']);
-         return view('index',compact('categories','products'));
+         return view('index',compact('categories','products','subcategories'));
     }
 }

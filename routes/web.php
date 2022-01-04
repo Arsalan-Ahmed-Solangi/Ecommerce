@@ -113,4 +113,7 @@ Route::group(['middleware' => ['AuthAdmin']], function(){
 
 Route::get('showProductBySubCategoryId/{id}', [PublicController::class,'showProductBySubCategoryId']);
 
+// Route::get('showProductBySubCategoryId/{id}', [HomeController::class,'showProductBySubCategoryId']);
+
+
 
