@@ -29,7 +29,33 @@
         <link rel="stylesheet" href="../../assets/css/theme.css">
 
     </head>
+    <style>
+        .current {
+                      color: green;
+                    }
 
+                    #pagin li {
+                      display: inline-block;
+                    }
+
+                    .prev {
+                      cursor: pointer;
+                    }
+
+                    .next {
+                      cursor: pointer;
+                    }
+
+                    .last{
+                      cursor:pointer;
+                      margin-left:5px;
+                    }
+
+                    .first{
+                      cursor:pointer;
+                      margin-right:5px;
+                    }
+    </style>
     <body>
 
         <!-- ========== HEADER ========== -->
@@ -502,8 +528,11 @@
                                         </li>
                                     </div>
                                     @endforeach --}}
+                                </ul> 
+                                <ul id="pagin" style='font-size:20px;float: right;'>
+         
                                 </ul>
-                             
+                            </div>
                             </div>
                         </div>
                     </div>
@@ -678,6 +707,7 @@
             });
 
             $(document).on('ready', function () {
+            
                 // initialization of header
                 $.HSCore.components.HSHeader.init($('#header'));
 
@@ -765,7 +795,80 @@
             var products = <?=json_encode($products);?>;
             $(document).ready(function(){
                 getgata();
-             
+                
+                //Pagination
+                pageSize = 20;
+                incremSlide = 5;
+                startPage = 0;
+                numberPage = 0;
+
+                var pageCount =  $(".paginationClass").length / pageSize;
+                var totalSlidepPage = Math.floor(pageCount / incremSlide);
+                    
+                for(var i = 0 ; i<pageCount;i++){
+                    $("#pagin").append('<li><a href="#">'+(i+1)+'</a></li> ');
+                    if(i>pageSize){
+                       $("#pagin li").eq(i).hide();
+                    }
+                }
+
+                var prev = $("<li/>").addClass("prev").html("Prev").click(function(){
+                   startPage-=5;
+                   incremSlide-=5;
+                   numberPage--;
+                   slide();
+                });
+
+                prev.hide();
+
+                var next = $("<li/>").addClass("next").html("Next").click(function(){
+                   startPage+=5;
+                   incremSlide+=5;
+                   numberPage++;
+                   slide();
+                });
+
+                $("#pagin").prepend(prev).append(next);
+
+                $("#pagin li").first().find("a").addClass("current");
+
+                slide = function(sens){
+                   $("#pagin li").hide();
+                   
+                   for(t=startPage;t<incremSlide;t++){
+                     $("#pagin li").eq(t+1).show();
+                   }
+                   if(startPage == 0){
+                     next.show();
+                     prev.hide();
+                   }else if(numberPage == totalSlidepPage ){
+                     next.hide();
+                     prev.show();
+                   }else{
+                     next.show();
+                     prev.show();
+                   }
+                   
+                    
+                }
+
+                showPage = function(page) {
+                      $(".paginationClass").hide();
+                      $(".paginationClass").each(function(n) {
+                          if (n >= pageSize * (page - 1) && n < pageSize * page)
+                              $(this).show();
+                      });        
+                }
+                    
+                showPage(1);
+                $("#pagin li a").eq(0).addClass("current");
+
+                $("#pagin li a").click(function() {
+                     $("#pagin li a").removeClass("current");
+                     $(this).addClass("current");
+                     showPage(parseInt($(this).text()));
+                });
+              
             });
           
             $('.categoryclass').bind('click', function(e) {
@@ -808,14 +911,14 @@
                   function getgata()
                 {
                     var html = '';
-                  var i ='';
-                $.each(products ,function (key, ObjSection) 
-                {     
-                   if(ObjSection.product_id !=i)
-                    {
+                    var i ='';
+                    $.each(products ,function (key, ObjSection) 
+                    {     
+                    if(ObjSection.product_id !=i)
+                        {
 
                     
-                    html +=  '<div class="col-md-3">';
+                    html +=  '<div class="col-md-3 paginationClass">';
                     html += '<li class="col-6 col-md-4 col-xl product-item">';
                     html += '<div class="product-item__outer h-100">';
                     html += '<div class="product-item__inner px-xl-4 p-3">';
