@@ -39,6 +39,7 @@ Route::get('viewCart',[App\Http\Controllers\HomeController::class, 'viewCart'])-
 Route::post('deleteCart',[App\Http\Controllers\HomeController::class, 'deleteCart'])->name('deleteCart');
 Route::post('updateCart',[App\Http\Controllers\HomeController::class, 'updateCart'])->name('updateCart');
 Route::get('checkOut',[App\Http\Controllers\HomeController::class, 'checkOut'])->name('checkOut');
+Route::post('checkOutProcess',[App\Http\Controllers\HomeController::class, 'checkOutProcess'])->name('checkOutProcess');
 //****end of User page**********//
 
 

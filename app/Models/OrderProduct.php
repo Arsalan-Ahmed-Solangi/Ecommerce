@@ -9,7 +9,7 @@ class OrderProduct extends UuiModel
 {
     use HasFactory;
 
-    protected $table      = 'orders';
+    protected $table      = 'orders_product';
     protected $primaryKey  = 'order_product_id';
 
     protected $fillable = [
@@ -17,6 +17,7 @@ class OrderProduct extends UuiModel
         'order_id',
         'product_id',
         'cost',
+        'quantity',
         'order_amount',
         'order_status',
 

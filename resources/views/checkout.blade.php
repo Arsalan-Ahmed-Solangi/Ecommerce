@@ -418,7 +418,8 @@
                 <div class="mb-5">
                     <h1 class="text-center">Checkout</h1>
                 </div>
-
+                <form action="{{ route('checkOutProcess')  }}" method="POST" id="form">
+                    @csrf
                 <!-- End Accordion -->
                 <form class="js-validate" novalidate="novalidate">
                     <div class="row">
@@ -442,27 +443,26 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                @php
+                                                    $total = 0 ;
+                                                @endphp
+                                                @foreach ($cart  as $key => $value)
                                                 <tr class="cart_item">
-                                                    <td>Ultra Wireless S50 Headphones S50 with Bluetooth&nbsp;<strong class="product-quantity">× 1</strong></td>
-                                                    <td>$1,100.00</td>
+                                                    <td>{{ $value->product_name }}&nbsp;<strong class="product-quantity">× {{ $value->quantity }}</strong></td>
+                                                    <td>{{ "$".$value->product_selling_price * $value->quantity }}  </td>
+                                                    @php
+                                                     $total += $value->product_selling_price * $value->quantity ;
+                                                    @endphp
                                                 </tr>
-                                                <tr class="cart_item">
-                                                    <td>Widescreen NX Mini F1 SMART NX&nbsp;<strong class="product-quantity">× 1</strong></td>
-                                                    <td>$685.00</td>
-                                                </tr>
+
+                                                @endforeach
+
                                             </tbody>
                                             <tfoot>
-                                                {{-- <tr>
-                                                    <th>Subtotal</th>
-                                                    <td>$1,785.00</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>Shipping</th>
-                                                    <td>Flat rate $300.00</td>
-                                                </tr> --}}
+
                                                 <tr>
                                                     <th>Total</th>
-                                                    <td><strong>$2,085.00</strong></td>
+                                                    <td><strong>{{ "$".$total  }}</strong></td>
                                                 </tr>
                                             </tfoot>
                                         </table>
@@ -483,10 +483,19 @@
                                     <h3 class="section-title mb-0 pb-2 font-size-25">Billing details</h3>
                                 </div>
                                 <!-- End Title -->
-
-                                <!-- Billing Form -->
+                                @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                <strong>Whoops!</strong> There were some problems with your input.<br><br>
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                                </div>
+                                @endif
+                                 <!-- Billing Form -->
                                 <div class="row">
-
+                                    <input type="hidden" name="total_amount" value="{{ $total  }}" />
                                     <div class="col-md-6">
                                         <!-- Input -->
                                         <div class="js-form-message mb-6">
@@ -499,7 +508,7 @@
                                         <!-- End Input -->
                                     </div>
 
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <!-- Input -->
                                         <div class="js-form-message mb-6">
                                             <label class="form-label">
@@ -509,7 +518,7 @@
                                             <input type="number" name="phone_no" placeholder="Enter phone number" class="form-control">
                                         </div>
                                         <!-- End Input -->
-                                    </div>
+                                    </div> --}}
 
 
 
@@ -528,7 +537,7 @@
 
 
 
-
+                                </form>
 
 
 

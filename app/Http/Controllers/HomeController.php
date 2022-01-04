@@ -7,8 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\Admin\Order;
 use Auth;
 use Redirect;
+use DB;
 use Illuminate\Support\Str;
 use App\Models\Cart;
+use App\Models\OrderProduct;
+
 class HomeController extends Controller
 {
     /**
@@ -47,6 +50,7 @@ class HomeController extends Controller
     }
 
     public function logout(Request $request) {
+        DB::table('cart')->delete();
         Auth::logout();
         return redirect()->route('home')
         ->with('success','Logout  successfully!');
@@ -127,4 +131,48 @@ class HomeController extends Controller
         return view('checkout',compact('categories','cart'));
 
     }
+
+    public function checkOutProcess(Request $request)
+    {
+
+
+        $request->validate([
+
+
+            'address' => 'required',
+            'postal_code'      => 'required',
+
+
+        ]);
+        $order  = new Order();
+        $order->order_id = Str::uuid();
+        $order->user_id = Auth::user()->id;
+        $order->order_no = "O12A2".time();
+        $order->address = $request->address;
+        $order->postal_code = $request->postal_code;
+        $order->order_amount = $request->total_amount;
+        $order->save();
+
+       $id = $order->order_id;
+       $cart = Cart::join('products','products.product_id','=','cart.product_id')->get();
+
+       foreach($cart as $key => $value)
+       {
+            OrderProduct::create([
+
+                'order_product_id' =>Str::uuid(),
+                'order_id' => $id,
+                'product_id' => $value->product_id,
+                'cost' => $value->product_selling_price,
+                'quantity' => $value->quantity,
+
+            ]);
+       }
+
+       DB::table('cart')->delete();
+       return redirect()->route('home')
+       ->with('success','Your order has beed created!');
+    }
+
+
 }

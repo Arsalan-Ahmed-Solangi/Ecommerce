@@ -15,6 +15,7 @@ class Order extends UuiModel
         'order_id',
         'user_id',
         'order_no',
+        'address',
         'order_amount',
         'order_status',
 
